@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xv8-HB-gz7">
-                                <rect key="frame" x="67" y="402" width="240" height="128"/>
+                                <rect key="frame" x="67" y="317" width="240" height="213"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jwP-6s-Vgc">
@@ -32,15 +32,21 @@
                                 <state key="normal" title="Receive Image"/>
                                 <connections>
                                     <action selector="ReceiveImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uvC-sD-IHx"/>
-                                    <action selector="SendImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2dG-TA-PXM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Image!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8S-mZ-XkF">
+                                <rect key="frame" x="138" y="69" width="99" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH8-NV-i1e">
-                                <rect key="frame" x="130" y="70" width="114" height="30"/>
+                                <rect key="frame" x="245" y="226" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Upload a picture"/>
                                 <connections>
-                                    <segue destination="c2w-co-owo" kind="presentation" id="fcd-gd-AtO"/>
+                                    <segue destination="c2w-co-owo" kind="presentation" id="laB-Fr-0sC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -48,13 +54,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="AWSImageView" destination="Xv8-HB-gz7" id="xpH-Ll-aQS"/>
-                        <outlet property="Camera" destination="HGT-v7-47n" id="puK-FY-GLT"/>
-                        <outlet property="ImageProgress" destination="jwP-6s-Vgc" id="vxa-uR-0B2"/>
-                        <outlet property="ImageView" destination="6O3-mu-1Tz" id="EIF-iW-rus"/>
-                        <outlet property="PhotoLibrary" destination="qeA-b0-nde" id="03V-os-Bmn"/>
-                        <outlet property="ReceiveImage" destination="JfK-hY-9Bp" id="wZq-6e-YtI"/>
-                        <outlet property="SendImage" destination="SH8-NV-i1e" id="bRO-ia-shE"/>
+                        <outlet property="AWSImageView" destination="Xv8-HB-gz7" id="Uej-2I-xgK"/>
+                        <outlet property="GoUploadImage" destination="SH8-NV-i1e" id="oTv-0j-PNd"/>
+                        <outlet property="ImageProgress" destination="jwP-6s-Vgc" id="DzI-Eh-7RK"/>
+                        <outlet property="ReceiveImage" destination="JfK-hY-9Bp" id="2mC-NV-XMZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -78,7 +81,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Camera"/>
                                 <connections>
-                                    <action selector="CameraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gkU-3a-Asu"/>
                                     <action selector="CameraAction:" destination="c2w-co-owo" eventType="touchUpInside" id="tWV-Wh-1bX"/>
                                 </connections>
                             </button>
@@ -88,15 +90,6 @@
                                 <state key="normal" title="Photo Library"/>
                                 <connections>
                                     <action selector="PhotoLibraryAction:" destination="c2w-co-owo" eventType="touchUpInside" id="aNO-fM-Dqg"/>
-                                    <action selector="PhotoLibraryAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n4g-xL-E3Y"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5I-Pf-fAW">
-                                <rect key="frame" x="116" y="76" width="135" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Download an image"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="40M-oE-7cq"/>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JVv-gk-VSW">
@@ -108,19 +101,35 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Upload Image to S3"/>
                                 <connections>
-                                    <action selector="SendImageAction:" destination="c2w-co-owo" eventType="touchUpInside" id="YjY-B5-Odk"/>
+                                    <action selector="UploadImageAction:" destination="c2w-co-owo" eventType="touchUpInside" id="Ll1-xa-mO4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5I-Pf-fAW">
+                                <rect key="frame" x="256" y="223" width="104" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Show an image"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="nR5-32-BYR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload Image!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnT-Yk-EGN">
+                                <rect key="frame" x="141" y="67" width="111" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Xjq-R4-QoL"/>
                     </view>
                     <connections>
                         <outlet property="Camera" destination="HGT-v7-47n" id="Tot-rz-iXn"/>
+                        <outlet property="GoShowImage" destination="y5I-Pf-fAW" id="HyD-e0-dXi"/>
                         <outlet property="ImageView" destination="6O3-mu-1Tz" id="Ls5-0W-br1"/>
                         <outlet property="PhotoLibrary" destination="qeA-b0-nde" id="9Yd-lg-8wp"/>
                         <outlet property="ProgressView" destination="JVv-gk-VSW" id="vAq-jB-xbR"/>
-                        <outlet property="UploadImage" destination="Vcg-B5-wAP" id="ySg-ht-qyk"/>
+                        <outlet property="UploadImage" destination="Vcg-B5-wAP" id="RHR-zY-VAY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWW-ay-xYC" userLabel="First Responder" sceneMemberID="firstResponder"/>

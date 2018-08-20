@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ShowImageViewController.swift
 //  Spotted
 //
 //  Created by Joanne Lee on 8/19/18.
@@ -12,7 +12,7 @@ import AWSS3
 
 class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var SendImage: UIButton!
+    @IBOutlet weak var GoUploadImage: UIButton!
     @IBOutlet weak var ReceiveImage: UIButton!
     @IBOutlet weak var AWSImageView: UIImageView!
     @IBOutlet weak var ImageProgress: UIProgressView!

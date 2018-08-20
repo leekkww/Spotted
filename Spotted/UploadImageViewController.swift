@@ -12,11 +12,12 @@ import AWSS3
 
 class UploadImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var GoShowImage: UIButton!
     @IBOutlet weak var PhotoLibrary: UIButton!
     @IBOutlet weak var Camera: UIButton!
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var ProgressView: UIProgressView!
-    @IBOutlet weak var SendImage: UIButton!
+    @IBOutlet weak var UploadImage: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +98,7 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    @IBAction internal func SendImageAction(_ sender: UIButton) {
+    @IBAction internal func UploadImageAction(_ sender: UIButton) {
         uploadData(with: UIImagePNGRepresentation(ImageView.image!)!)
     }
     
