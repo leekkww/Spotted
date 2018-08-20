@@ -31,6 +31,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Receive Image"/>
                                 <connections>
+                                    <action selector="ReceiveImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uvC-sD-IHx"/>
                                     <action selector="SendImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2dG-TA-PXM"/>
                                 </connections>
                             </button>
@@ -52,7 +53,8 @@
                         <outlet property="ImageProgress" destination="jwP-6s-Vgc" id="vxa-uR-0B2"/>
                         <outlet property="ImageView" destination="6O3-mu-1Tz" id="EIF-iW-rus"/>
                         <outlet property="PhotoLibrary" destination="qeA-b0-nde" id="03V-os-Bmn"/>
-                        <outlet property="SendImage" destination="JfK-hY-9Bp" id="6rv-1S-71F"/>
+                        <outlet property="ReceiveImage" destination="JfK-hY-9Bp" id="wZq-6e-YtI"/>
+                        <outlet property="SendImage" destination="SH8-NV-i1e" id="bRO-ia-shE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -77,6 +79,7 @@
                                 <state key="normal" title="Camera"/>
                                 <connections>
                                     <action selector="CameraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gkU-3a-Asu"/>
+                                    <action selector="CameraAction:" destination="c2w-co-owo" eventType="touchUpInside" id="tWV-Wh-1bX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeA-b0-nde">
@@ -84,6 +87,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Photo Library"/>
                                 <connections>
+                                    <action selector="PhotoLibraryAction:" destination="c2w-co-owo" eventType="touchUpInside" id="aNO-fM-Dqg"/>
                                     <action selector="PhotoLibraryAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n4g-xL-E3Y"/>
                                 </connections>
                             </button>
@@ -103,11 +107,21 @@
                                 <rect key="frame" x="130" y="558" width="136" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Upload Image to S3"/>
+                                <connections>
+                                    <action selector="SendImageAction:" destination="c2w-co-owo" eventType="touchUpInside" id="YjY-B5-Odk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Xjq-R4-QoL"/>
                     </view>
+                    <connections>
+                        <outlet property="Camera" destination="HGT-v7-47n" id="Tot-rz-iXn"/>
+                        <outlet property="ImageView" destination="6O3-mu-1Tz" id="Ls5-0W-br1"/>
+                        <outlet property="PhotoLibrary" destination="qeA-b0-nde" id="9Yd-lg-8wp"/>
+                        <outlet property="ProgressView" destination="JVv-gk-VSW" id="vAq-jB-xbR"/>
+                        <outlet property="UploadImage" destination="Vcg-B5-wAP" id="ySg-ht-qyk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWW-ay-xYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

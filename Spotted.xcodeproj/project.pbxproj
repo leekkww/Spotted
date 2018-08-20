@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		39E20701D7ABAD2870C0D250 /* Pods_Spotted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77485E6BAFB99720D525C1B2 /* Pods_Spotted.framework */; };
 		9791D078212A685D0085718C /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 9791D077212A685D0085718C /* awsconfiguration.json */; };
+		9791D07A212A768B0085718C /* UploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D079212A768B0085718C /* UploadImageViewController.swift */; };
 		97B1EA70212A2B6C00A7C00E /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = 97B1EA6F212A2B6C00A7C00E /* podfile */; };
 		97E4E6C12129F71B0077BC0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4E6C02129F71B0077BC0C /* AppDelegate.swift */; };
-		97E4E6C32129F71B0077BC0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4E6C22129F71B0077BC0C /* ViewController.swift */; };
+		97E4E6C32129F71B0077BC0C /* ShowImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4E6C22129F71B0077BC0C /* ShowImageViewController.swift */; };
 		97E4E6C62129F71B0077BC0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E4E6C42129F71B0077BC0C /* Main.storyboard */; };
 		97E4E6C82129F71C0077BC0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97E4E6C72129F71C0077BC0C /* Assets.xcassets */; };
 		97E4E6CB2129F71C0077BC0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E4E6C92129F71C0077BC0C /* LaunchScreen.storyboard */; };
@@ -21,10 +22,11 @@
 		5B58ECFDBAC7A8C3DE7451CA /* Pods-Spotted.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotted.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spotted/Pods-Spotted.release.xcconfig"; sourceTree = "<group>"; };
 		77485E6BAFB99720D525C1B2 /* Pods_Spotted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9791D077212A685D0085718C /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		9791D079212A768B0085718C /* UploadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewController.swift; sourceTree = "<group>"; };
 		97B1EA6F212A2B6C00A7C00E /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97E4E6BD2129F71B0077BC0C /* Spotted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E4E6C02129F71B0077BC0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		97E4E6C22129F71B0077BC0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		97E4E6C22129F71B0077BC0C /* ShowImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageViewController.swift; sourceTree = "<group>"; };
 		97E4E6C52129F71B0077BC0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97E4E6C72129F71C0077BC0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97E4E6CA2129F71C0077BC0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,7 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				97E4E6C02129F71B0077BC0C /* AppDelegate.swift */,
-				97E4E6C22129F71B0077BC0C /* ViewController.swift */,
+				97E4E6C22129F71B0077BC0C /* ShowImageViewController.swift */,
+				9791D079212A768B0085718C /* UploadImageViewController.swift */,
 				97E4E6C42129F71B0077BC0C /* Main.storyboard */,
 				97E4E6C72129F71C0077BC0C /* Assets.xcassets */,
 				97E4E6C92129F71C0077BC0C /* LaunchScreen.storyboard */,
@@ -216,8 +219,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97E4E6C32129F71B0077BC0C /* ViewController.swift in Sources */,
+				97E4E6C32129F71B0077BC0C /* ShowImageViewController.swift in Sources */,
 				97E4E6C12129F71B0077BC0C /* AppDelegate.swift in Sources */,
+				9791D07A212A768B0085718C /* UploadImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var Camera: UIButton!
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var ProgressView: UIProgressView!
+    @IBOutlet weak var SendImage: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

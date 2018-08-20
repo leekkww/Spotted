@@ -13,6 +13,7 @@ import AWSS3
 class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var SendImage: UIButton!
+    @IBOutlet weak var ReceiveImage: UIButton!
     @IBOutlet weak var AWSImageView: UIImageView!
     @IBOutlet weak var ImageProgress: UIProgressView!
     
@@ -69,7 +70,7 @@ class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     
-    @IBAction internal func SendImageAction(_ sender: UIButton) {
+    @IBAction internal func ReceiveImageAction(_ sender: UIButton) {
         downloadData()
     }
 }
