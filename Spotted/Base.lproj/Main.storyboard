@@ -34,18 +34,37 @@
                                     <action selector="PhotoLibraryAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n4g-xL-E3Y"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6O3-mu-1Tz">
-                                <rect key="frame" x="64" y="199" width="240" height="331"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xv8-HB-gz7">
+                                <rect key="frame" x="67" y="402" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6O3-mu-1Tz">
+                                <rect key="frame" x="67" y="145" width="240" height="193"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jwP-6s-Vgc">
+                                <rect key="frame" x="81" y="587" width="150" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfK-hY-9Bp">
+                                <rect key="frame" x="246" y="573" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send Image"/>
+                                <connections>
+                                    <action selector="SendImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2dG-TA-PXM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="AWSImageView" destination="Xv8-HB-gz7" id="xpH-Ll-aQS"/>
                         <outlet property="Camera" destination="HGT-v7-47n" id="puK-FY-GLT"/>
+                        <outlet property="ImageProgress" destination="jwP-6s-Vgc" id="vxa-uR-0B2"/>
                         <outlet property="ImageView" destination="6O3-mu-1Tz" id="EIF-iW-rus"/>
                         <outlet property="PhotoLibrary" destination="qeA-b0-nde" id="03V-os-Bmn"/>
+                        <outlet property="SendImage" destination="JfK-hY-9Bp" id="6rv-1S-71F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
