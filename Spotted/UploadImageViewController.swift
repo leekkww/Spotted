@@ -77,7 +77,7 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
             key: "testImage.jpg",
             contentType: "image/png",
             expression: expression,
-            completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
+            completionHandler: completionHandler).continueWith { (task) -> AnyObject? in
                 if let error = task.error {
                     print("Error: \(error.localizedDescription)")
                     

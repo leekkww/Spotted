@@ -9,6 +9,7 @@
 import UIKit
 import AWSCore
 import AWSS3
+import GoogleSignIn
 
 class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -58,7 +59,7 @@ class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate
             expression: expression,
             completionHandler: completionHandler
             ).continueWith {
-                (task) -> AnyObject! in if let error = task.error {
+                (task) -> AnyObject? in if let error = task.error {
                     print("Error: \(error.localizedDescription)")
                 }
                 
@@ -72,6 +73,16 @@ class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction internal func ReceiveImageAction(_ sender: UIButton) {
         downloadData()
+    }
+    
+    
+    @IBAction internal func signOut(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().signOut()
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = sb.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+            self.present(vc, animated: true) {}
+        }
     }
 }
 
