@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  UploadImageViewController.swift
 //  Spotted
 //
 //  Created by Joanne Lee on 8/19/18.
@@ -10,21 +10,20 @@ import UIKit
 import AWSCore
 import AWSS3
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+class UploadImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet weak var PhotoLibrary: UIButton!
     @IBOutlet weak var Camera: UIButton!
     @IBOutlet weak var ImageView: UIImageView!
-    @IBOutlet weak var SendImage: UIButton!
-    @IBOutlet weak var AWSImageView: UIImageView!
-    @IBOutlet weak var ImageProgress: UIProgressView!
+    @IBOutlet weak var ProgressView: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.ImageProgress.progress = 0.0;
+        
+        self.ProgressView.progress = 0.0;
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,51 +43,61 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         present(picker, animated: true, completion: nil)
     }
-
-    func downloadData() {
-        let expression = AWSS3TransferUtilityDownloadExpression()
-        expression.progressBlock = {(task, progress) in DispatchQueue.main.async(execute: {
-            // Do something e.g. Update a progress bar.
-            self.ImageProgress.progress = Float(progress.fractionCompleted)
-        })
+    
+    func uploadData(with data: Data) {
+        var progressBlock: AWSS3TransferUtilityProgressBlock?
+        progressBlock = {(task, progress) in
+            DispatchQueue.main.async(execute: {
+                self.ProgressView.progress = Float(progress.fractionCompleted)
+            })
         }
         
-        var completionHandler: AWSS3TransferUtilityDownloadCompletionHandlerBlock?
-        completionHandler = { (task, URL, data, error) -> Void in
+        var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
+        completionHandler = { (task, error) -> Void in
             DispatchQueue.main.async(execute: {
-                // Do something e.g. Alert a user for transfer completion.
-                // On failed downloads, `error` contains the error object.
                 if let error = error {
-                    NSLog("Failed with error: \(error)")
-//                } else if(self.progressView.progress != 1.0) {
-//                    NSLog("Error: Failed - Likely due to invalid region / filename")
-                } else{
-                    self.AWSImageView.image = UIImage(data: data!)
+                    print("Failed with error: \(error)")
+                }
+                else if(self.ProgressView.progress != 1.0) {
+                    NSLog("Error: Failed - Likely due to invalid region / filename")
+                }
+                else{
                 }
             })
         }
         
+        let expression = AWSS3TransferUtilityUploadExpression()
+        expression.progressBlock = progressBlock
         let transferUtility = AWSS3TransferUtility.default()
-        transferUtility.downloadData(
-            fromBucket: "spotted-images",
-            key: "_DSC8664.jpg",
+        transferUtility.uploadData(
+            data,
+            bucket: "spotted-images",
+            key: "testImage.jpg",
+            contentType: "image/png",
             expression: expression,
-            completionHandler: completionHandler
-            ).continueWith {
-                (task) -> AnyObject! in if let error = task.error {
+            completionHandler: completionHandler).continueWith { (task) -> AnyObject! in
+                if let error = task.error {
                     print("Error: \(error.localizedDescription)")
+                    
+                    DispatchQueue.main.async {
+                    }
                 }
                 
                 if let _ = task.result {
-                    // Do something with downloadTask.
-                    //ImageView.image = UIImage(contentsOfFile: downloadingFileURL.path)
+                    
+                    DispatchQueue.main.async {
+                        print("Upload Starting!")
+                    }
+                    
+                    // Do something with uploadTask.
                 }
+                
                 return nil;
         }
     }
     
     @IBAction internal func SendImageAction(_ sender: UIButton) {
-        downloadData()
+        uploadData(with: UIImagePNGRepresentation(ImageView.image!)!)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
