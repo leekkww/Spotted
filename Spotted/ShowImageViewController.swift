@@ -12,7 +12,6 @@ import FirebaseStorage
 
 class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var GoUploadImage: UIButton!
     @IBOutlet weak var ReceiveImage: UIButton!
     @IBOutlet weak var AWSImageView: UIImageView!
     @IBOutlet weak var ImageProgress: UIProgressView!

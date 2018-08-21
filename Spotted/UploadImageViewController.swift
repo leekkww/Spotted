@@ -10,8 +10,7 @@ import UIKit
 import FirebaseStorage
 
 class UploadImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    @IBOutlet weak var GoShowImage: UIButton!
+
     @IBOutlet weak var PhotoLibrary: UIButton!
     @IBOutlet weak var Camera: UIButton!
     @IBOutlet weak var ImageView: UIImageView!

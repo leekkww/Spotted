@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="DEk-Vh-Qzk">
             <objects>
-                <viewController id="tc3-Oe-Cxr" sceneMemberID="viewController">
+                <viewController id="tc3-Oe-Cxr" customClass="WelcomeViewController" customModule="Spotted" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kSA-VW-b3f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQG-PO-svC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-233" y="-572"/>
+            <point key="canvasLocation" x="134" y="116"/>
         </scene>
         <!--Show Image View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -53,36 +53,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xv8-HB-gz7">
-                                <rect key="frame" x="67" y="317" width="240" height="213"/>
+                                <rect key="frame" x="67" y="212" width="240" height="346"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jwP-6s-Vgc">
-                                <rect key="frame" x="81" y="587" width="150" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </progressView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfK-hY-9Bp">
-                                <rect key="frame" x="237" y="573" width="100" height="30"/>
+                                <rect key="frame" x="158" y="120" width="59" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Receive Image"/>
+                                <state key="normal" title="Get spot"/>
                                 <connections>
                                     <action selector="ReceiveImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uvC-sD-IHx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Image!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8S-mZ-XkF">
-                                <rect key="frame" x="138" y="69" width="99" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Look at a random spot!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8S-mZ-XkF">
+                                <rect key="frame" x="99" y="67" width="176" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SH8-NV-i1e">
-                                <rect key="frame" x="245" y="226" width="114" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Upload a picture"/>
-                                <connections>
-                                    <segue destination="c2w-co-owo" kind="presentation" id="laB-Fr-0sC"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59F-DP-E6D">
                                 <rect key="frame" x="11" y="627" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -91,20 +79,23 @@
                                     <action selector="signOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gAM-Fh-cDw"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jwP-6s-Vgc">
+                                <rect key="frame" x="125" y="170" width="150" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="AWSImageView" destination="Xv8-HB-gz7" id="Uej-2I-xgK"/>
-                        <outlet property="GoUploadImage" destination="SH8-NV-i1e" id="oTv-0j-PNd"/>
                         <outlet property="ImageProgress" destination="jwP-6s-Vgc" id="DzI-Eh-7RK"/>
                         <outlet property="ReceiveImage" destination="JfK-hY-9Bp" id="2mC-NV-XMZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+            <point key="canvasLocation" x="893.60000000000002" y="473.6131934032984"/>
         </scene>
         <!--Friend List Table View Controller-->
         <scene sceneID="12V-EM-QFM">
@@ -132,7 +123,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6J-Fu-Eee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="869.60000000000002" y="810.94452773613204"/>
+            <point key="canvasLocation" x="1748" y="474"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="clk-xj-ftX">
@@ -158,21 +149,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6O3-mu-1Tz">
-                                <rect key="frame" x="78" y="340" width="240" height="193"/>
+                                <rect key="frame" x="78" y="268" width="240" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGT-v7-47n">
-                                <rect key="frame" x="160" y="244" width="54" height="30"/>
+                                <rect key="frame" x="154" y="206" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Camera"/>
+                                <state key="normal" title="Use Camera"/>
                                 <connections>
                                     <action selector="CameraAction:" destination="c2w-co-owo" eventType="touchUpInside" id="tWV-Wh-1bX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeA-b0-nde">
-                                <rect key="frame" x="141" y="183" width="92" height="30"/>
+                                <rect key="frame" x="114" y="155" width="181" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Photo Library"/>
+                                <state key="normal" title="Upload from Photo Library"/>
                                 <connections>
                                     <action selector="PhotoLibraryAction:" destination="c2w-co-owo" eventType="touchUpInside" id="aNO-fM-Dqg"/>
                                 </connections>
@@ -181,36 +172,27 @@
                                 <rect key="frame" x="123" y="621" width="172" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcg-B5-wAP">
-                                <rect key="frame" x="130" y="558" width="136" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Upload Image to S3"/>
-                                <connections>
-                                    <action selector="UploadImageAction:" destination="c2w-co-owo" eventType="touchUpInside" id="Ll1-xa-mO4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5I-Pf-fAW">
-                                <rect key="frame" x="256" y="223" width="104" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Show an image"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="nR5-32-BYR"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload Image!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnT-Yk-EGN">
-                                <rect key="frame" x="141" y="67" width="111" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spot someone!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnT-Yk-EGN">
+                                <rect key="frame" x="132" y="79" width="116" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcg-B5-wAP">
+                                <rect key="frame" x="157" y="520" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit spot"/>
+                                <connections>
+                                    <action selector="UploadImageAction:" destination="c2w-co-owo" eventType="touchUpInside" id="Ll1-xa-mO4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Xjq-R4-QoL"/>
                     </view>
                     <connections>
                         <outlet property="Camera" destination="HGT-v7-47n" id="Tot-rz-iXn"/>
-                        <outlet property="GoShowImage" destination="y5I-Pf-fAW" id="HyD-e0-dXi"/>
                         <outlet property="ImageView" destination="6O3-mu-1Tz" id="Ls5-0W-br1"/>
                         <outlet property="PhotoLibrary" destination="qeA-b0-nde" id="9Yd-lg-8wp"/>
                         <outlet property="ProgressView" destination="JVv-gk-VSW" id="vAq-jB-xbR"/>
@@ -219,10 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWW-ay-xYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.60000000000002" y="116.49175412293854"/>
+            <point key="canvasLocation" x="894" y="-207"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="laB-Fr-0sC"/>
-    </inferredMetricsTieBreakers>
 </document>
