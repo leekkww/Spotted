@@ -29,13 +29,8 @@ class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate
     }
 
     func downloadData() {
-        // Get a reference to the storage service using the default Firebase App
         let storage = Storage.storage()
-        
-        // Create a storage reference from our storage service
         let storageRef = storage.reference()
-        
-        // Create a reference to the file we want to download
         let starsRef = storageRef.child("images/rivers.jpg")
         
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)

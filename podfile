@@ -1,11 +1,12 @@
 platform :ios, '9.0'
 
    target :'Spotted' do
-      use_frameworks!
+        use_frameworks!
 
-      pod 'GoogleSignIn'
-      pod 'Firebase/Storage'
-      pod 'Firebase/Core'
+        pod 'GoogleSignIn'
+        pod 'Firebase/Storage'
+        pod 'Firebase/Core'
+        pod 'Firebase/Firestore'
 
       # other pods
 

@@ -46,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let _ = user.profile.email
             // ...
             print(GIDSignIn.sharedInstance().currentUser)
-            print("test")
             if GIDSignIn.sharedInstance().hasAuthInKeychain() {
                 let sb = UIStoryboard(name: "Main", bundle: nil)
                 if let vc = sb.instantiateViewController(withIdentifier: "ShowImageViewController") as? ShowImageViewController {
