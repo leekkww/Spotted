@@ -66,15 +66,5 @@ class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate
     @IBAction internal func ReceiveImageAction(_ sender: UIButton) {
         downloadData()
     }
-    
-    
-    @IBAction internal func signOut(_ sender: UIButton) {
-        GIDSignIn.sharedInstance().signOut()
-        
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        if let vc = sb.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-            self.present(vc, animated: true) {}
-        }
-    }
 }
 

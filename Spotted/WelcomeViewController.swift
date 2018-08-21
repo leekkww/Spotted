@@ -7,7 +7,16 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class WelcomeViewController : UIViewController {
     
+    @IBAction internal func signOut(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().signOut()
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = sb.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+            self.present(vc, animated: true) {}
+        }
+    }
 }
