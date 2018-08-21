@@ -10,7 +10,8 @@
 		39E20701D7ABAD2870C0D250 /* Pods_Spotted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77485E6BAFB99720D525C1B2 /* Pods_Spotted.framework */; };
 		978E90C5212B3C930078A9DC /* FriendListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E90C4212B3C930078A9DC /* FriendListTableViewController.swift */; };
 		978E90C7212B3D4F0078A9DC /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E90C6212B3D4F0078A9DC /* FriendListTableViewCell.swift */; };
-		9791D078212A685D0085718C /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 9791D077212A685D0085718C /* awsconfiguration.json */; };
+		978E90CD212C9FF40078A9DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 978E90CC212C9FF40078A9DC /* GoogleService-Info.plist */; };
+		978E90CF212CC3720078A9DC /* UIImage+JPEGQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E90CE212CC3720078A9DC /* UIImage+JPEGQuality.swift */; };
 		9791D07A212A768B0085718C /* UploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D079212A768B0085718C /* UploadImageViewController.swift */; };
 		97B1EA70212A2B6C00A7C00E /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = 97B1EA6F212A2B6C00A7C00E /* podfile */; };
 		97E4E6C12129F71B0077BC0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4E6C02129F71B0077BC0C /* AppDelegate.swift */; };
@@ -26,7 +27,8 @@
 		77485E6BAFB99720D525C1B2 /* Pods_Spotted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		978E90C4212B3C930078A9DC /* FriendListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewController.swift; sourceTree = "<group>"; };
 		978E90C6212B3D4F0078A9DC /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
-		9791D077212A685D0085718C /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		978E90CC212C9FF40078A9DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		978E90CE212CC3720078A9DC /* UIImage+JPEGQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+JPEGQuality.swift"; sourceTree = "<group>"; };
 		9791D079212A768B0085718C /* UploadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewController.swift; sourceTree = "<group>"; };
 		97B1EA6F212A2B6C00A7C00E /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97E4E6BD2129F71B0077BC0C /* Spotted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotted.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,11 +91,12 @@
 				9791D079212A768B0085718C /* UploadImageViewController.swift */,
 				978E90C4212B3C930078A9DC /* FriendListTableViewController.swift */,
 				978E90C6212B3D4F0078A9DC /* FriendListTableViewCell.swift */,
+				978E90CC212C9FF40078A9DC /* GoogleService-Info.plist */,
 				97E4E6C42129F71B0077BC0C /* Main.storyboard */,
 				97E4E6C72129F71C0077BC0C /* Assets.xcassets */,
 				97E4E6C92129F71C0077BC0C /* LaunchScreen.storyboard */,
 				97E4E6CC2129F71C0077BC0C /* Info.plist */,
-				9791D077212A685D0085718C /* awsconfiguration.json */,
+				978E90CE212CC3720078A9DC /* UIImage+JPEGQuality.swift */,
 			);
 			path = Spotted;
 			sourceTree = "<group>";
@@ -167,11 +170,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9791D078212A685D0085718C /* awsconfiguration.json in Resources */,
 				97E4E6CB2129F71C0077BC0C /* LaunchScreen.storyboard in Resources */,
 				97E4E6C82129F71C0077BC0C /* Assets.xcassets in Resources */,
 				97B1EA70212A2B6C00A7C00E /* podfile in Resources */,
 				97E4E6C62129F71B0077BC0C /* Main.storyboard in Resources */,
+				978E90CD212C9FF40078A9DC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,25 +206,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Spotted/Pods-Spotted-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -259,6 +256,7 @@
 				97E4E6C12129F71B0077BC0C /* AppDelegate.swift in Sources */,
 				978E90C7212B3D4F0078A9DC /* FriendListTableViewCell.swift in Sources */,
 				9791D07A212A768B0085718C /* UploadImageViewController.swift in Sources */,
+				978E90CF212CC3720078A9DC /* UIImage+JPEGQuality.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

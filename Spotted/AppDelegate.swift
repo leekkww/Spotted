@@ -8,8 +8,7 @@
 
 import UIKit
 import GoogleSignIn
-import AWSCore
-import AWSMobileClient
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -22,8 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = "528615439077-5k0m74h9788tdm69g044msh40c4qi51p.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         
-        //Instantiate AWSMobileClient to establish AWS user credentials
-        return AWSMobileClient.sharedInstance().interceptApplication(application, didFinishLaunchingWithOptions: launchOptions)
+        FirebaseApp.configure()
+
+        return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {

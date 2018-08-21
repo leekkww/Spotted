@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import AWSCore
-import AWSS3
+import FirebaseStorage
 
 class UploadImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -47,59 +46,41 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func uploadData(with data: Data) {
-        var progressBlock: AWSS3TransferUtilityProgressBlock?
-        progressBlock = {(task, progress) in
-            DispatchQueue.main.async(execute: {
-                self.ProgressView.progress = Float(progress.fractionCompleted)
-            })
+        
+        // Get a reference to the storage service using the default Firebase App
+        let storage = Storage.storage()
+        
+        // Create a storage reference from our storage service
+        let storageRef = storage.reference()
+        
+        let metadata = StorageMetadata()
+        let riversRef = storageRef.child("images/rivers.jpg")
+        let uploadTask = riversRef.putData(data, metadata: metadata)
+        
+        // Listen for state changes, errors, and completion of the upload.
+        uploadTask.observe(.resume) { snapshot in
+            // Upload resumed, also fires when the upload starts
         }
         
-        var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
-        completionHandler = { (task, error) -> Void in
-            DispatchQueue.main.async(execute: {
-                if let error = error {
-                    print("Failed with error: \(error)")
-                }
-                else if(self.ProgressView.progress != 1.0) {
-                    NSLog("Error: Failed - Likely due to invalid region / filename")
-                }
-                else{
-                }
-            })
+        uploadTask.observe(.pause) { snapshot in
+            // Upload paused
         }
         
-        let expression = AWSS3TransferUtilityUploadExpression()
-        expression.progressBlock = progressBlock
-        let transferUtility = AWSS3TransferUtility.default()
-        transferUtility.uploadData(
-            data,
-            bucket: "spotted-images",
-            key: "testImage.jpg",
-            contentType: "image/png",
-            expression: expression,
-            completionHandler: completionHandler).continueWith { (task) -> AnyObject? in
-                if let error = task.error {
-                    print("Error: \(error.localizedDescription)")
-                    
-                    DispatchQueue.main.async {
-                    }
-                }
-                
-                if let _ = task.result {
-                    
-                    DispatchQueue.main.async {
-                        print("Upload Starting!")
-                    }
-                    
-                    // Do something with uploadTask.
-                }
-                
-                return nil;
+        uploadTask.observe(.progress) { snapshot in
+            // Upload reported progress
+            let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+                / Double(snapshot.progress!.totalUnitCount)
+            self.ProgressView.progress = Float(percentComplete)
+        }
+        
+        uploadTask.observe(.success) { snapshot in
+            // Upload completed successfully
         }
     }
     
     @IBAction internal func UploadImageAction(_ sender: UIButton) {
-        uploadData(with: UIImagePNGRepresentation(ImageView.image!)!)
+        let smallerImage = ImageView.image!.jpeg(.lowest)
+        uploadData(with: smallerImage!)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

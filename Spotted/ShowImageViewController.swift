@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import AWSCore
-import AWSS3
 import GoogleSignIn
+import FirebaseStorage
 
 class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -30,44 +29,43 @@ class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate
     }
 
     func downloadData() {
-        let expression = AWSS3TransferUtilityDownloadExpression()
-        expression.progressBlock = {(task, progress) in DispatchQueue.main.async(execute: {
-            // Do something e.g. Update a progress bar.
-            self.ImageProgress.progress = Float(progress.fractionCompleted)
-        })
+        // Get a reference to the storage service using the default Firebase App
+        let storage = Storage.storage()
+        
+        // Create a storage reference from our storage service
+        let storageRef = storage.reference()
+        
+        // Create a reference to the file we want to download
+        let starsRef = storageRef.child("images/rivers.jpg")
+        
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        let downloadTask = starsRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                // Data for "images/rivers.jpg" is returned
+                self.AWSImageView.image = UIImage(data: data!)
+            }
         }
         
-        var completionHandler: AWSS3TransferUtilityDownloadCompletionHandlerBlock?
-        completionHandler = { (task, URL, data, error) -> Void in
-            DispatchQueue.main.async(execute: {
-                // Do something e.g. Alert a user for transfer completion.
-                // On failed downloads, `error` contains the error object.
-                if let error = error {
-                    NSLog("Failed with error: \(error)")
-//                } else if(self.progressView.progress != 1.0) {
-//                    NSLog("Error: Failed - Likely due to invalid region / filename")
-                } else{
-                    self.AWSImageView.image = UIImage(data: data!)
-                }
-            })
+        // Observe changes in status
+        downloadTask.observe(.resume) { snapshot in
+            // Download resumed, also fires when the download starts
         }
         
-        let transferUtility = AWSS3TransferUtility.default()
-        transferUtility.downloadData(
-            fromBucket: "spotted-images",
-            key: "_DSC8664.jpg",
-            expression: expression,
-            completionHandler: completionHandler
-            ).continueWith {
-                (task) -> AnyObject? in if let error = task.error {
-                    print("Error: \(error.localizedDescription)")
-                }
-                
-                if let _ = task.result {
-                    // Do something with downloadTask.
-                    //ImageView.image = UIImage(contentsOfFile: downloadingFileURL.path)
-                }
-                return nil;
+        downloadTask.observe(.pause) { snapshot in
+            // Download paused
+        }
+        
+        downloadTask.observe(.progress) { snapshot in
+            // Download reported progress
+            let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+                / Double(snapshot.progress!.totalUnitCount)
+            self.ImageProgress.progress = Float(percentComplete)
+        }
+        
+        downloadTask.observe(.success) { snapshot in
+            // Download completed successfully
         }
     }
     
