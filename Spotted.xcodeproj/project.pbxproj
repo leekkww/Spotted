@@ -12,6 +12,7 @@
 		978E90C7212B3D4F0078A9DC /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E90C6212B3D4F0078A9DC /* FriendListTableViewCell.swift */; };
 		978E90CD212C9FF40078A9DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 978E90CC212C9FF40078A9DC /* GoogleService-Info.plist */; };
 		978E90CF212CC3720078A9DC /* UIImage+JPEGQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E90CE212CC3720078A9DC /* UIImage+JPEGQuality.swift */; };
+		978E90D1212CC9A60078A9DC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E90D0212CC9A60078A9DC /* WelcomeViewController.swift */; };
 		9791D07A212A768B0085718C /* UploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D079212A768B0085718C /* UploadImageViewController.swift */; };
 		97B1EA70212A2B6C00A7C00E /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = 97B1EA6F212A2B6C00A7C00E /* podfile */; };
 		97E4E6C12129F71B0077BC0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4E6C02129F71B0077BC0C /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 		978E90C6212B3D4F0078A9DC /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
 		978E90CC212C9FF40078A9DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		978E90CE212CC3720078A9DC /* UIImage+JPEGQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+JPEGQuality.swift"; sourceTree = "<group>"; };
+		978E90D0212CC9A60078A9DC /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		9791D079212A768B0085718C /* UploadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewController.swift; sourceTree = "<group>"; };
 		97B1EA6F212A2B6C00A7C00E /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97E4E6BD2129F71B0077BC0C /* Spotted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotted.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				97E4E6C02129F71B0077BC0C /* AppDelegate.swift */,
+				978E90D0212CC9A60078A9DC /* WelcomeViewController.swift */,
 				B8ED3739212B43D100BAD098 /* LoginViewController.swift */,
 				97E4E6C22129F71B0077BC0C /* ShowImageViewController.swift */,
 				9791D079212A768B0085718C /* UploadImageViewController.swift */,
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8ED373A212B43D100BAD098 /* LoginViewController.swift in Sources */,
+				978E90D1212CC9A60078A9DC /* WelcomeViewController.swift in Sources */,
 				97E4E6C32129F71B0077BC0C /* ShowImageViewController.swift in Sources */,
 				978E90C5212B3C930078A9DC /* FriendListTableViewController.swift in Sources */,
 				97E4E6C12129F71B0077BC0C /* AppDelegate.swift in Sources */,

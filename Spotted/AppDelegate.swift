@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print(GIDSignIn.sharedInstance().currentUser)
             if GIDSignIn.sharedInstance().hasAuthInKeychain() {
                 let sb = UIStoryboard(name: "Main", bundle: nil)
-                if let vc = sb.instantiateViewController(withIdentifier: "ShowImageViewController") as? ShowImageViewController {
+                if let vc = sb.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController {
                     window?.rootViewController = vc
                 }
             } else {
