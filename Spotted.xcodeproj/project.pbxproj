@@ -18,6 +18,7 @@
 		97E4E6C62129F71B0077BC0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E4E6C42129F71B0077BC0C /* Main.storyboard */; };
 		97E4E6C82129F71C0077BC0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97E4E6C72129F71C0077BC0C /* Assets.xcassets */; };
 		97E4E6CB2129F71C0077BC0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E4E6C92129F71C0077BC0C /* LaunchScreen.storyboard */; };
+		B8ED373A212B43D100BAD098 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ED3739212B43D100BAD098 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		97E4E6C72129F71C0077BC0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97E4E6CA2129F71C0077BC0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97E4E6CC2129F71C0077BC0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8ED3739212B43D100BAD098 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD5F31176EBE284AB71F30F8 /* Pods-Spotted.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotted.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spotted/Pods-Spotted.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				97E4E6C02129F71B0077BC0C /* AppDelegate.swift */,
+				B8ED3739212B43D100BAD098 /* LoginViewController.swift */,
 				97E4E6C22129F71B0077BC0C /* ShowImageViewController.swift */,
 				9791D079212A768B0085718C /* UploadImageViewController.swift */,
 				978E90C4212B3C930078A9DC /* FriendListTableViewController.swift */,
@@ -115,6 +118,7 @@
 				97E4E6BA2129F71B0077BC0C /* Frameworks */,
 				97E4E6BB2129F71B0077BC0C /* Resources */,
 				9FC5DA392A089A37EAB044F4 /* [CP] Embed Pods Frameworks */,
+				E1F2CE6C58C266AB8844433A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,6 +208,9 @@
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -212,10 +219,31 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spotted/Pods-Spotted-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1F2CE6C58C266AB8844433A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Spotted/Pods-Spotted-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Spotted/Pods-Spotted-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -225,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8ED373A212B43D100BAD098 /* LoginViewController.swift in Sources */,
 				97E4E6C32129F71B0077BC0C /* ShowImageViewController.swift in Sources */,
 				978E90C5212B3C930078A9DC /* FriendListTableViewController.swift in Sources */,
 				97E4E6C12129F71B0077BC0C /* AppDelegate.swift in Sources */,
