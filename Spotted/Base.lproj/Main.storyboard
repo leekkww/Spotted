@@ -98,14 +98,14 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Friend name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trR-ei-clV">
-                                <rect key="frame" x="142" y="159" width="97" height="30"/>
+                                <rect key="frame" x="79" y="123" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfK-hY-9Bp">
-                                <rect key="frame" x="158" y="111" width="59" height="30"/>
+                                <rect key="frame" x="223" y="123" width="59" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Get spot"/>
                                 <connections>
@@ -136,11 +136,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="59" id="uPR-5c-oLg">
-                                <rect key="frame" x="0.0" y="28" width="375" height="59"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="126" id="p48-lv-cF0">
+                                <rect key="frame" x="0.0" y="28" width="375" height="126"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uPR-5c-oLg" id="OuB-Fj-Xtg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p48-lv-cF0" id="Nqk-pH-XQB">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -151,10 +151,13 @@
                             <outlet property="delegate" destination="yTU-ON-Eov" id="aQC-O1-ebu"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="KOv-uE-k5r" id="dwO-JE-c6t"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6J-Fu-Eee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676" y="474"/>
+            <point key="canvasLocation" x="1676" y="473.6131934032984"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZZH-eZ-ig9">
