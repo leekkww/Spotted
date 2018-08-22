@@ -13,6 +13,7 @@ import FirebaseFirestore
 
 struct UserInfo {
     static var userName = ""
+    static var friendos = [Friend]()
 }
 
 @UIApplicationMain
@@ -70,15 +71,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print(user.authentication.idToken)
             print(user.userID)
             print(GIDSignIn.sharedInstance().currentUser)
+            
+            // redirect to the right controller
             if GIDSignIn.sharedInstance().hasAuthInKeychain() {
                 let sb = UIStoryboard(name: "Main", bundle: nil)
-                if let vc = sb.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController {
+                if let vc = sb.instantiateViewController(withIdentifier: "StartNav") as? UINavigationController {
                     window?.rootViewController = vc
                 }
             } else {
                 let sb = UIStoryboard(name: "Main", bundle: nil)
                 if let vc = sb.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
                     window?.rootViewController = vc
+                }
+            }
+            
+            // Load friend data
+            let db = Firestore.firestore()
+            let docRef = db.collection("users").document("joleek")
+            
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    UserInfo.friendos = (document.data()!["friends"] as! [String]).map({
+                        Friend(id:0,name:$0)
+                    })
+                } else {
+                    print("Document does not exist")
                 }
             }
         }

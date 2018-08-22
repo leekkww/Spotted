@@ -23,8 +23,6 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
 
     @IBOutlet var tableView: UITableView!
 
-    var friendos = [Friend]()
-
     var filteredFriends = [Friend]()
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -35,7 +33,7 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredFriends = friendos.filter({( friend : Friend) -> Bool in
+        filteredFriends = UserInfo.friendos.filter({( friend : Friend) -> Bool in
             return friend.name.lowercased().contains(searchText.lowercased())
         })
         
@@ -52,20 +50,7 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
-        // Load friend data
-        let db = Firestore.firestore()
-        let docRef = db.collection("users").document("joleek")
-
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                self.friendos = (document.data()!["friends"] as! [String]).map({
-                    Friend(id:0,name:$0)
-                })
-                self.tableView.reloadData()
-            } else {
-                print("Document does not exist")
-            }
-        }
+        
     }
     
     func isFiltering() -> Bool {
@@ -80,7 +65,7 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
         if isFiltering() {
             return filteredFriends.count
         }
-        return friendos.count
+        return UserInfo.friendos.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -94,7 +79,7 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
         if isFiltering() {
             friendo = filteredFriends[indexPath.row]
         } else {
-            friendo = friendos[indexPath.row]
+            friendo = UserInfo.friendos[indexPath.row]
         }
         
         cell.textLabel!.text = friendo.name

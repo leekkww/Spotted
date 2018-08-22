@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="lGg-cX-Qmq">
             <objects>
-                <navigationController id="i28-O7-fxa" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="StartNav" id="i28-O7-fxa" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ooC-sQ-725">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -70,7 +70,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sample Friend List"/>
                                 <connections>
-                                    <segue destination="wWg-1l-7OX" kind="presentation" id="FK8-F8-EAV"/>
+                                    <segue destination="wWg-1l-7OX" kind="show" id="9HU-wj-yxD"/>
                                 </connections>
                             </button>
                         </subviews>
