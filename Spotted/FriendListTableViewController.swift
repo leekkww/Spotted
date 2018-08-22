@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 struct Friend {
     var id: Int
@@ -22,30 +23,7 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
 
     @IBOutlet var tableView: UITableView!
 
-    var friendos = [
-        Friend(id: 1, name: "Joan"),
-        Friend(id: 2, name: "Mike"),
-        Friend(id: 3, name: "Slov"),
-        Friend(id: 1, name: "Joan"),
-        Friend(id: 2, name: "Mike"),
-        Friend(id: 3, name: "Slov"),
-        Friend(id: 1, name: "Joan"),
-        Friend(id: 2, name: "Mike"),
-        Friend(id: 3, name: "Slov"),
-        Friend(id: 1, name: "Joan"),
-        Friend(id: 2, name: "Mike"),
-        Friend(id: 3, name: "Slov"),
-        Friend(id: 1, name: "Joan"),
-        Friend(id: 2, name: "Mike"),
-        Friend(id: 3, name: "Slov"),
-        Friend(id: 1, name: "Joan"),
-        Friend(id: 2, name: "Mike"),
-        Friend(id: 3, name: "Slov"),
-        Friend(id: 1, name: "Joan"),
-        Friend(id: 2, name: "Mike"),
-        Friend(id: 3, name: "Slov"),
-        
-    ]
+    var friendos = [Friend]()
 
     var filteredFriends = [Friend]()
     
@@ -71,9 +49,23 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.placeholder = "Search Friendos"
-        tableView.tableHeaderView = searchController.searchBar;
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        
+        // Load friend data
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document("joleek")
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.friendos = (document.data()!["friends"] as! [String]).map({
+                    Friend(id:0,name:$0)
+                })
+                self.tableView.reloadData()
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     func isFiltering() -> Bool {

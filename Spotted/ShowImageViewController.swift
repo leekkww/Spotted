@@ -29,27 +29,10 @@ class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate
         // Dispose of any resources that can be recreated.
     }
 
-    func downloadData() {
-        let db = Firestore.firestore()
-        
-        let myName = UserInfo.userName
-        let friendName: String = SpottedFriendText.text!
-        let docRef = db.collection("photo-data").document("\(myName)-\(friendName)")
-        
-        var count = 0
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                count = (document.data()!["count"] as? Int)!
-                print("Document data: \(dataDescription)")
-            } else {
-                print("Document does not exist")
-            }
-        }
-
+    func downloadImage(_ name1 : String, _ name2 : String, _ count : Int) {
         let storage = Storage.storage()
         let storageRef = storage.reference()
-        let starsRef = storageRef.child("\(myName)/\(friendName)/\(count).jpg")
+        let starsRef = storageRef.child("\(name1)/\(name2)/\(count).jpg")
         
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         let downloadTask = starsRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
@@ -83,7 +66,22 @@ class ShowImageViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @IBAction internal func ReceiveImageAction(_ sender: UIButton) {
-        downloadData()
+        let db = Firestore.firestore()
+        
+        let myName = UserInfo.userName
+        let friendName: String = SpottedFriendText.text!
+        let docRef = db.collection("photo-data").document("\(myName)-\(friendName)")
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                let count = (document.data()!["count"] as? Int)!
+                print("Document data: \(dataDescription)")
+                self.downloadImage(myName, friendName, count - 1)
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.

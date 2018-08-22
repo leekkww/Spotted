@@ -83,7 +83,7 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
         let myName = UserInfo.userName
         let friendName: String = SpottedFriendText.text!
         let docRef = db.collection("photo-data").document("\(myName)-\(friendName)")
-        
+
         var count = 0
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
@@ -93,12 +93,12 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
             } else {
                 print("Document does not exist")
             }
+            db.collection("photo-data").document("\(myName)-\(friendName)").setData([ "count": count+1 ], merge: true)
+            
+            let storagePath = self.imageStorePath(myName, friendName, count)
+            let smallerImage = self.ImageView.image!.jpeg(.lowest)
+            self.uploadData(with: smallerImage!, storagePath: storagePath)
         }
-        db.collection("photo-data").document("\(myName)-\(friendName)").setData([ "count": count+1 ], merge: true)
-        
-        let storagePath = imageStorePath(myName, friendName, count)
-        let smallerImage = ImageView.image!.jpeg(.lowest)
-        uploadData(with: smallerImage!, storagePath: storagePath)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
