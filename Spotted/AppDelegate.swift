@@ -10,6 +10,10 @@ import UIKit
 import GoogleSignIn
 import Firebase
 
+struct UserInfo {
+    static var userName = ""
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
@@ -40,11 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             // Perform any operations on signed in user here.
             let _ = user.userID                  // For client-side use only!
             let _ = user.authentication.idToken // Safe to send to the server
-            let _ = user.profile.name
+            UserInfo.userName = String(user.profile.name)
             let _ = user.profile.givenName
             let _ = user.profile.familyName
             let _ = user.profile.email
             // ...
+            print(user.profile.name)
+            print(user.authentication.idToken)
+            print(user.userID)
             print(GIDSignIn.sharedInstance().currentUser)
             if GIDSignIn.sharedInstance().hasAuthInKeychain() {
                 let sb = UIStoryboard(name: "Main", bundle: nil)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 import FirebaseStorage
 
 class UploadImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -16,7 +17,8 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var ProgressView: UIProgressView!
     @IBOutlet weak var UploadImage: UIButton!
-    
+    @IBOutlet weak var SpottedFriendText: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -44,7 +46,7 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
         present(picker, animated: true, completion: nil)
     }
     
-    func uploadData(with data: Data) {
+    func uploadData(with data: Data, storagePath: String) {
         
         // Get a reference to the storage service using the default Firebase App
         let storage = Storage.storage()
@@ -53,7 +55,8 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
         let storageRef = storage.reference()
         
         let metadata = StorageMetadata()
-        let riversRef = storageRef.child("images/rivers.jpg")
+
+        let riversRef = storageRef.child(storagePath)
         let uploadTask = riversRef.putData(data, metadata: metadata)
         
         // Listen for state changes, errors, and completion of the upload.
@@ -78,12 +81,32 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction internal func UploadImageAction(_ sender: UIButton) {
+        let db = Firestore.firestore()
+        
+        let friendName: String = SpottedFriendText.text!
+        let docRef = db.collection("photo-data").document("\(UserInfo.userName)-\(friendName)")
+        
+        var count = 0
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                count = (document.data()!["count"] as? Int)!
+                print("Document data: \(dataDescription)")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        let storagePath = imageStorePath(UserInfo.userName, friendName, count)
         let smallerImage = ImageView.image!.jpeg(.lowest)
-        uploadData(with: smallerImage!)
+        uploadData(with: smallerImage!, storagePath: storagePath)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         ImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismiss(animated: true, completion: nil)
+    }
+    
+    func imageStorePath(_ name1: String, _ name2: String, _ count: Int) -> String {
+        return "\(name1)/\(name2)\\\(count).jpg"
     }
 }
 
