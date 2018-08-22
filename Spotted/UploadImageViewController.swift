@@ -10,7 +10,7 @@ import UIKit
 import FirebaseFirestore
 import FirebaseStorage
 
-class UploadImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class UploadImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var PhotoLibrary: UIButton!
     @IBOutlet weak var Camera: UIButton!
@@ -24,6 +24,7 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
         // Do any additional setup after loading the view, typically from a nib.
         
         self.ProgressView.progress = 0.0;
+        SpottedFriendText.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,15 +49,11 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
     
     func uploadData(with data: Data, storagePath: String) {
         
-        // Get a reference to the storage service using the default Firebase App
         let storage = Storage.storage()
-        
-        // Create a storage reference from our storage service
         let storageRef = storage.reference()
+        let riversRef = storageRef.child(storagePath)
         
         let metadata = StorageMetadata()
-
-        let riversRef = storageRef.child(storagePath)
         let uploadTask = riversRef.putData(data, metadata: metadata)
         
         // Listen for state changes, errors, and completion of the upload.
@@ -83,8 +80,9 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction internal func UploadImageAction(_ sender: UIButton) {
         let db = Firestore.firestore()
         
+        let myName = UserInfo.userName
         let friendName: String = SpottedFriendText.text!
-        let docRef = db.collection("photo-data").document("\(UserInfo.userName)-\(friendName)")
+        let docRef = db.collection("photo-data").document("\(myName)-\(friendName)")
         
         var count = 0
         docRef.getDocument { (document, error) in
@@ -96,7 +94,9 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
                 print("Document does not exist")
             }
         }
-        let storagePath = imageStorePath(UserInfo.userName, friendName, count)
+        db.collection("photo-data").document("\(myName)-\(friendName)").setData([ "count": count+1 ], merge: true)
+        
+        let storagePath = imageStorePath(myName, friendName, count)
         let smallerImage = ImageView.image!.jpeg(.lowest)
         uploadData(with: smallerImage!, storagePath: storagePath)
     }
@@ -106,7 +106,13 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func imageStorePath(_ name1: String, _ name2: String, _ count: Int) -> String {
-        return "\(name1)/\(name2)\\\(count).jpg"
+        return "\(name1)/\(name2)/\(count).jpg"
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        SpottedFriendText.resignFirstResponder()
+        return true;
     }
 }
 
