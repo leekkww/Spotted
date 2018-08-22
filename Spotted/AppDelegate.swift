@@ -9,6 +9,7 @@
 import UIKit
 import GoogleSignIn
 import Firebase
+import FirebaseFirestore
 
 struct UserInfo {
     static var userName = ""
@@ -26,6 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
         FirebaseApp.configure()
+        
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+        
+        // With this change, timestamps stored in Cloud Firestore will be read back as Firebase Timestamp objects instead of as system Date objects. So you will also need to update code expecting a Date to instead expect a Timestamp. For example:
+        
+        // old:
+//        let date: Date = documentSnapshot.get("created_at") as! Date
+//        // new:
+//        let timestamp: Timestamp = documentSnapshot.get("created_at") as! Timestamp
+//        let date: Date = timestamp.dateValue()
+//
+//        Please audit all existing usages of Date when you enable the new behavior. In a future release, the behavior will be changed to the new behavior, so if you do not follow these steps, YOUR APP MAY BREAK.
+
 
         return true
     }
