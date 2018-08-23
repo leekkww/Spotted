@@ -33,8 +33,7 @@ func downloadImage(_ name1 : String, _ name2 : String, _ count : Int, _ callback
     
     downloadTask.observe(.progress) { snapshot in
         // Download reported progress
-        let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
-            / Double(snapshot.progress!.totalUnitCount)
+        // let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount) / Double(snapshot.progress!.totalUnitCount)
     }
     
     downloadTask.observe(.success) { snapshot in

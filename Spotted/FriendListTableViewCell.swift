@@ -18,7 +18,10 @@ class FriendListTableViewCell : UITableViewCell {
             guard let friend = friend else { return }
 
             nameLabel.text = friend.name
-            //profileImageView.image = image(forRating: player.rating)
+            downloadImage(UserInfo.userName, friend.name, 0, {
+                (data) -> Void in
+                self.profileImageView.image = UIImage(data: data)
+            })
         }
     }
     

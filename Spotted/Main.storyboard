@@ -140,7 +140,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="99" id="p48-lv-cF0" customClass="FriendListTableViewCell" customModule="Spotted" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FriendCell" rowHeight="99" id="p48-lv-cF0" customClass="FriendListTableViewCell" customModule="Spotted" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p48-lv-cF0" id="Nqk-pH-XQB">
@@ -176,7 +176,7 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="7WL-G5-gTx" id="RuT-ob-TwU"/>
                                     <outlet property="profileImageView" destination="M08-fb-cRx" id="40F-bh-JvE"/>
-                                    <segue destination="f6N-eD-NlJ" kind="show" identifier="showFriend" id="Wx2-yR-81L"/>
+                                    <segue destination="oyL-YF-aXa" kind="show" identifier="showFriend" id="PuI-I8-wvr"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -196,26 +196,52 @@
             <point key="canvasLocation" x="894" y="866"/>
         </scene>
         <!--Friend Detail View Controller-->
-        <scene sceneID="I6k-52-ZCx">
+        <scene sceneID="gt8-u2-Zpn">
             <objects>
-                <viewController id="f6N-eD-NlJ" customClass="FriendDetailViewController" customModule="Spotted" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="w8q-8F-Unj">
+                <tableViewController id="oyL-YF-aXa" customClass="FriendDetailViewController" customModule="Spotted" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6fr-1a-zAN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ruI-gh-Cts">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="rgc-Uc-5mj"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="U7u-df-qKZ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y81-SX-45O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendPhoto" rowHeight="250" id="cJ8-kt-fEY" customClass="FriendDetailViewCell" customModule="Spotted" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="250"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cJ8-kt-fEY" id="v4c-Cc-A2r">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NM6-SI-Yri">
+                                            <rect key="frame" x="113" y="21" width="150" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="7KD-px-Bpc"/>
+                                                <constraint firstAttribute="height" constant="200" id="kQs-IX-0y7"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="NM6-SI-Yri" firstAttribute="top" secondItem="v4c-Cc-A2r" secondAttribute="topMargin" constant="10" id="jdx-cC-yvu"/>
+                                        <constraint firstItem="NM6-SI-Yri" firstAttribute="centerX" secondItem="v4c-Cc-A2r" secondAttribute="centerX" id="nEN-cz-75q"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="NM6-SI-Yri" secondAttribute="bottom" constant="10" id="rrJ-Ch-tz4"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="SpotImageView" destination="NM6-SI-Yri" id="dDk-L2-ots"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oyL-YF-aXa" id="mBZ-uc-CZx"/>
+                            <outlet property="delegate" destination="oyL-YF-aXa" id="5xA-Dw-eUN"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="TableView" destination="6fr-1a-zAN" id="6Lj-bU-LFD"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IJn-Kr-ag4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1772" y="865.81709145427294"/>
+            <point key="canvasLocation" x="1637.5999999999999" y="865.81709145427294"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="clk-xj-ftX">

@@ -13,7 +13,6 @@ struct Friend {
     var id: Int
     //var profpic : String // name of profpic?
     var name : String
-    
 }
 
 class FriendListTableViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
@@ -22,7 +21,6 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
     }
 
     @IBOutlet var tableView: UITableView!
-    var friendDetailViewController: FriendDetailViewController? = nil
 
     var filteredFriends = [Friend]()
     
@@ -50,8 +48,6 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
         searchController.searchBar.placeholder = "Search Friendos"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
-        
     }
     
     func isFiltering() -> Bool {
