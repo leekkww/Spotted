@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class FriendDetailViewController: UIViewController {
     
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var candyImageView: UIImageView!

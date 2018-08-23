@@ -9,5 +9,21 @@
 import UIKit
 
 class FriendListTableViewCell : UITableViewCell {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    var friend: Friend? {
+        didSet {
+            guard let friend = friend else { return }
 
+            nameLabel.text = friend.name
+            //profileImageView.image = image(forRating: player.rating)
+        }
+    }
+    
+    func image(forRating rating: Int) -> UIImage? {
+        let imageName = "\(rating)Stars"
+        return UIImage(named: imageName)
+    }
 }
