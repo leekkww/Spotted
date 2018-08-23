@@ -27,8 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = "528615439077-5k0m74h9788tdm69g044msh40c4qi51p.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         
-        FirebaseApp.configure()
+        UISearchBar.appearance().tintColor = .spottedOrange
+        UINavigationBar.appearance().tintColor = .spottedOrange
         
+        FirebaseApp.configure()
         let db = Firestore.firestore()
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true

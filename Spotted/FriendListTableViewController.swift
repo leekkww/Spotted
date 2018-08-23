@@ -73,7 +73,7 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as! FriendListTableViewCell
         
         let friendo: Friend
         if isFiltering() {
@@ -82,8 +82,7 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
             friendo = UserInfo.friendos[indexPath.row]
         }
         
-        cell.textLabel!.text = friendo.name
-        //cell.detailTextLabel!.text = candy.category
+        cell.friend = friendo
         
         return cell
     }
