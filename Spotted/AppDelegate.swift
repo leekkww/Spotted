@@ -29,6 +29,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         UISearchBar.appearance().tintColor = .spottedOrange
         UINavigationBar.appearance().tintColor = .spottedOrange
+        UIButton.appearance().tintColor = .spottedOrange
+        
+        // font setting
+        guard let customFont = UIFont(name: "Dosis", size: UIFont.labelFontSize) else {
+            fatalError("""
+        Failed to load the "CustomFont-Light" font.
+        Make sure the font file is included in the project and the font name is spelled correctly.
+        """
+            )
+        }
+//        label.font = UIFontMetrics.default.scaledFont(for: customFont)
+//        label.adjustsFontForContentSizeCategory = true
+        
+        UILabel.appearance().font = customFont
+        UILabel.appearance(whenContainedInInstancesOf: [UIButton.self]).font = customFont
         
         FirebaseApp.configure()
         let db = Firestore.firestore()

@@ -19,6 +19,13 @@
 		9791D07A212A768B0085718C /* UploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D079212A768B0085718C /* UploadImageViewController.swift */; };
 		97B0C74F212EB1A4003D32AC /* FriendDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B0C74E212EB1A4003D32AC /* FriendDetailViewCell.swift */; };
 		97B0C751212EC3A1003D32AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97B0C750212EC3A1003D32AC /* Main.storyboard */; };
+		97B0C75A212ECCE8003D32AC /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97B0C753212ECCE8003D32AC /* Dosis-Medium.ttf */; };
+		97B0C75B212ECCE8003D32AC /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97B0C754212ECCE8003D32AC /* Dosis-Regular.ttf */; };
+		97B0C75C212ECCE8003D32AC /* Dosis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97B0C755212ECCE8003D32AC /* Dosis-Light.ttf */; };
+		97B0C75D212ECCE8003D32AC /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97B0C756212ECCE8003D32AC /* Dosis-Bold.ttf */; };
+		97B0C75E212ECCE8003D32AC /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97B0C757212ECCE8003D32AC /* Dosis-ExtraBold.ttf */; };
+		97B0C75F212ECCE8003D32AC /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97B0C758212ECCE8003D32AC /* Dosis-SemiBold.ttf */; };
+		97B0C760212ECCE8003D32AC /* Dosis-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97B0C759212ECCE8003D32AC /* Dosis-ExtraLight.ttf */; };
 		97B1EA70212A2B6C00A7C00E /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = 97B1EA6F212A2B6C00A7C00E /* podfile */; };
 		97E4E6C12129F71B0077BC0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4E6C02129F71B0077BC0C /* AppDelegate.swift */; };
 		97E4E6C32129F71B0077BC0C /* ShowImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4E6C22129F71B0077BC0C /* ShowImageViewController.swift */; };
@@ -41,6 +48,13 @@
 		9791D079212A768B0085718C /* UploadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewController.swift; sourceTree = "<group>"; };
 		97B0C74E212EB1A4003D32AC /* FriendDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailViewCell.swift; sourceTree = "<group>"; };
 		97B0C750212EC3A1003D32AC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		97B0C753212ECCE8003D32AC /* Dosis-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.ttf"; sourceTree = "<group>"; };
+		97B0C754212ECCE8003D32AC /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.ttf"; sourceTree = "<group>"; };
+		97B0C755212ECCE8003D32AC /* Dosis-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Light.ttf"; sourceTree = "<group>"; };
+		97B0C756212ECCE8003D32AC /* Dosis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Bold.ttf"; sourceTree = "<group>"; };
+		97B0C757212ECCE8003D32AC /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraBold.ttf"; sourceTree = "<group>"; };
+		97B0C758212ECCE8003D32AC /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
+		97B0C759212ECCE8003D32AC /* Dosis-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraLight.ttf"; sourceTree = "<group>"; };
 		97B1EA6F212A2B6C00A7C00E /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97E4E6BD2129F71B0077BC0C /* Spotted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotted.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E4E6C02129F71B0077BC0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +87,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		97B0C752212ECCE8003D32AC /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				97B0C753212ECCE8003D32AC /* Dosis-Medium.ttf */,
+				97B0C754212ECCE8003D32AC /* Dosis-Regular.ttf */,
+				97B0C755212ECCE8003D32AC /* Dosis-Light.ttf */,
+				97B0C756212ECCE8003D32AC /* Dosis-Bold.ttf */,
+				97B0C757212ECCE8003D32AC /* Dosis-ExtraBold.ttf */,
+				97B0C758212ECCE8003D32AC /* Dosis-SemiBold.ttf */,
+				97B0C759212ECCE8003D32AC /* Dosis-ExtraLight.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		97E4E6B42129F71B0077BC0C = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +125,7 @@
 			children = (
 				978E90CC212C9FF40078A9DC /* GoogleService-Info.plist */,
 				97E4E6CC2129F71C0077BC0C /* Info.plist */,
+				97B0C752212ECCE8003D32AC /* fonts */,
 				97E4E6C02129F71B0077BC0C /* AppDelegate.swift */,
 				97B0C74E212EB1A4003D32AC /* FriendDetailViewCell.swift */,
 				978E90D2212D37C50078A9DC /* FriendDetailViewController.swift */,
@@ -185,11 +214,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97B0C75D212ECCE8003D32AC /* Dosis-Bold.ttf in Resources */,
+				97B0C75B212ECCE8003D32AC /* Dosis-Regular.ttf in Resources */,
 				97E4E6CB2129F71C0077BC0C /* LaunchScreen.storyboard in Resources */,
+				97B0C75F212ECCE8003D32AC /* Dosis-SemiBold.ttf in Resources */,
+				97B0C75E212ECCE8003D32AC /* Dosis-ExtraBold.ttf in Resources */,
+				97B0C75C212ECCE8003D32AC /* Dosis-Light.ttf in Resources */,
 				97B0C751212EC3A1003D32AC /* Main.storyboard in Resources */,
+				97B0C75A212ECCE8003D32AC /* Dosis-Medium.ttf in Resources */,
 				97E4E6C82129F71C0077BC0C /* Assets.xcassets in Resources */,
 				97B1EA70212A2B6C00A7C00E /* podfile in Resources */,
 				978E90CD212C9FF40078A9DC /* GoogleService-Info.plist in Resources */,
+				97B0C760212ECCE8003D32AC /* Dosis-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

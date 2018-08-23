@@ -67,9 +67,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljw-cH-lqr">
-                                <rect key="frame" x="124" y="318" width="127" height="30"/>
+                                <rect key="frame" x="152" y="318" width="72" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sample Friend List"/>
+                                <state key="normal" title="Friend List"/>
                                 <connections>
                                     <segue destination="yTU-ON-Eov" kind="show" id="iAh-9l-XRF"/>
                                 </connections>
