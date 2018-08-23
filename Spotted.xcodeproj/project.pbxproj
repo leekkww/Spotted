@@ -15,6 +15,7 @@
 		978E90D1212CC9A60078A9DC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E90D0212CC9A60078A9DC /* WelcomeViewController.swift */; };
 		978E90D3212D37C50078A9DC /* FriendDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E90D2212D37C50078A9DC /* FriendDetailViewController.swift */; };
 		978F3911212E913C002C837E /* SpottedTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978F3910212E913C002C837E /* SpottedTheme.swift */; };
+		978F3913212EA7EF002C837E /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978F3912212EA7EF002C837E /* ImageStorage.swift */; };
 		9791D07A212A768B0085718C /* UploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D079212A768B0085718C /* UploadImageViewController.swift */; };
 		97B1EA70212A2B6C00A7C00E /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = 97B1EA6F212A2B6C00A7C00E /* podfile */; };
 		97E4E6C12129F71B0077BC0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4E6C02129F71B0077BC0C /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 		978E90D0212CC9A60078A9DC /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		978E90D2212D37C50078A9DC /* FriendDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailViewController.swift; sourceTree = "<group>"; };
 		978F3910212E913C002C837E /* SpottedTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpottedTheme.swift; sourceTree = "<group>"; };
+		978F3912212EA7EF002C837E /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		9791D079212A768B0085718C /* UploadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewController.swift; sourceTree = "<group>"; };
 		97B1EA6F212A2B6C00A7C00E /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		97E4E6BD2129F71B0077BC0C /* Spotted.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotted.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,7 @@
 			children = (
 				97E4E6C02129F71B0077BC0C /* AppDelegate.swift */,
 				978E90D2212D37C50078A9DC /* FriendDetailViewController.swift */,
+				978F3912212EA7EF002C837E /* ImageStorage.swift */,
 				978E90D0212CC9A60078A9DC /* WelcomeViewController.swift */,
 				B8ED3739212B43D100BAD098 /* LoginViewController.swift */,
 				97E4E6C22129F71B0077BC0C /* ShowImageViewController.swift */,
@@ -277,6 +280,7 @@
 				978F3911212E913C002C837E /* SpottedTheme.swift in Sources */,
 				978E90D1212CC9A60078A9DC /* WelcomeViewController.swift in Sources */,
 				97E4E6C32129F71B0077BC0C /* ShowImageViewController.swift in Sources */,
+				978F3913212EA7EF002C837E /* ImageStorage.swift in Sources */,
 				978E90C5212B3C930078A9DC /* FriendListTableViewController.swift in Sources */,
 				97E4E6C12129F71B0077BC0C /* AppDelegate.swift in Sources */,
 				978E90C7212B3D4F0078A9DC /* FriendListTableViewCell.swift in Sources */,
