@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import GoogleSignIn
 import Firebase
-import FirebaseFirestore
 
 struct UserInfo {
     static var userName = ""
@@ -17,15 +15,12 @@ struct UserInfo {
 }
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        GIDSignIn.sharedInstance().clientID = "528615439077-5k0m74h9788tdm69g044msh40c4qi51p.apps.googleusercontent.com"
-        GIDSignIn.sharedInstance().delegate = self
         
         UISearchBar.appearance().tintColor = .spottedOrange
         UINavigationBar.appearance().tintColor = .spottedOrange
@@ -61,69 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //
 //        Please audit all existing usages of Date when you enable the new behavior. In a future release, the behavior will be changed to the new behavior, so if you do not follow these steps, YOUR APP MAY BREAK.
 
-
         return true
     }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url as URL?,
-                                                 sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-    }
-
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
-              withError error: Error!) {
-        if let error = error {
-            print("\(error.localizedDescription)")
-        } else {
-            // Perform any operations on signed in user here.
-            let _ = user.userID                  // For client-side use only!
-            let _ = user.authentication.idToken // Safe to send to the server
-            UserInfo.userName = String(user.profile.name)
-            let _ = user.profile.givenName
-            let _ = user.profile.familyName
-            let _ = user.profile.email
-            // ...
-            print(user.profile.name)
-            print(user.authentication.idToken)
-            print(user.userID)
-            print(GIDSignIn.sharedInstance().currentUser)
-            
-            // redirect to the right controller
-            if GIDSignIn.sharedInstance().hasAuthInKeychain() {
-                let sb = UIStoryboard(name: "Main", bundle: nil)
-                if let vc = sb.instantiateViewController(withIdentifier: "StartNav") as? UINavigationController {
-                    window?.rootViewController = vc
-                }
-            } else {
-                let sb = UIStoryboard(name: "Main", bundle: nil)
-                if let vc = sb.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-                    window?.rootViewController = vc
-                }
-            }
-            
-            // Load friend data
-            let db = Firestore.firestore()
-            let docRef = db.collection("users").document("joleek")
-            
-            docRef.getDocument { (document, error) in
-                if let document = document, document.exists {
-                    UserInfo.friendos = (document.data()!["friends"] as! [String]).map({
-                        Friend(id:0,name:$0)
-                    })
-                } else {
-                    print("Document does not exist")
-                }
-            }
-        }
-    }
-
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
-              withError error: Error!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
-    }
-
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

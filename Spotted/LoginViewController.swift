@@ -6,23 +6,19 @@
 //  Copyright © 2018 Spotted. All rights reserved.
 //
 
-import Foundation
 import UIKit
-import GoogleSignIn
+import FirebaseUI
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+class LoginViewController: UIViewController, FUIAuthDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance().uiDelegate = self
+        let authUI = FUIAuth.defaultAuthUI()
+        // You need to adopt a FUIAuthDelegate protocol to receive callback
+        authUI?.delegate = self
         
-        // Uncomment to automatically sign in the user.
-        //GIDSignIn.sharedInstance().signInSilently()
-        
-        // TODO(developer) Configure the sign-in button look/feel
-        // ...
+        let authViewController = authUI?.authViewController()
+
+        self.present(authViewController!, animated: true, completion: nil)
     }
-
-    
-
 }

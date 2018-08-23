@@ -246,14 +246,7 @@
         <!--Login View Controller-->
         <scene sceneID="clk-xj-ftX">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="bGw-47-3gJ" customClass="LoginViewController" customModule="Spotted" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YxK-Nx-3Nh" customClass="GIDSignInButton">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.2417946128" blue="0.20424994839999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="Z9V-KQ-cvO"/>
-                    </view>
-                </viewController>
+                <viewController storyboardIdentifier="LoginViewController" id="bGw-47-3gJ" customClass="LoginViewController" customModule="Spotted" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kg4-3U-ATB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1671" y="116"/>
