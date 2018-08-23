@@ -22,6 +22,7 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
     }
 
     @IBOutlet var tableView: UITableView!
+    var friendDetailViewController: FriendDetailViewController? = nil
 
     var filteredFriends = [Friend]()
     
@@ -88,13 +89,11 @@ class FriendListTableViewController : UIViewController, UITableViewDataSource, U
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
+        if segue.identifier == "showFriend" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let friend = UserInfo.friendos[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! FriendDetailViewController
-                controller.detailCandy = friend
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
+                let controller = (segue.destination as! FriendDetailViewController)
+                controller.detailFriend = friend
             }
         }
     }
