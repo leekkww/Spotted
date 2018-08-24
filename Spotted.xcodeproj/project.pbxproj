@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		39E20701D7ABAD2870C0D250 /* Pods_Spotted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77485E6BAFB99720D525C1B2 /* Pods_Spotted.framework */; };
 		9775AB0A212F910F00CC2FC0 /* UIApplication+TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9775AB09212F910F00CC2FC0 /* UIApplication+TopViewController.swift */; };
+		9775AB0C212FE1DF00CC2FC0 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9775AB0B212FE1DF00CC2FC0 /* NotificationViewController.swift */; };
+		9775AB0E212FEAB300CC2FC0 /* NotificationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9775AB0D212FEAB300CC2FC0 /* NotificationViewCell.swift */; };
 		978E90C5212B3C930078A9DC /* FriendListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E90C4212B3C930078A9DC /* FriendListTableViewController.swift */; };
 		978E90C7212B3D4F0078A9DC /* FriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E90C6212B3D4F0078A9DC /* FriendListTableViewCell.swift */; };
 		978E90CD212C9FF40078A9DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 978E90CC212C9FF40078A9DC /* GoogleService-Info.plist */; };
@@ -40,6 +42,8 @@
 		5B58ECFDBAC7A8C3DE7451CA /* Pods-Spotted.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotted.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spotted/Pods-Spotted.release.xcconfig"; sourceTree = "<group>"; };
 		77485E6BAFB99720D525C1B2 /* Pods_Spotted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9775AB09212F910F00CC2FC0 /* UIApplication+TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+TopViewController.swift"; sourceTree = "<group>"; };
+		9775AB0B212FE1DF00CC2FC0 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		9775AB0D212FEAB300CC2FC0 /* NotificationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewCell.swift; sourceTree = "<group>"; };
 		978E90C4212B3C930078A9DC /* FriendListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewController.swift; sourceTree = "<group>"; };
 		978E90C6212B3D4F0078A9DC /* FriendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListTableViewCell.swift; sourceTree = "<group>"; };
 		978E90CC212C9FF40078A9DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				97B0C752212ECCE8003D32AC /* fonts */,
 				97E4E6C02129F71B0077BC0C /* AppDelegate.swift */,
 				97B0C763212F848E003D32AC /* AddFriendViewController.swift */,
+				9775AB0D212FEAB300CC2FC0 /* NotificationViewCell.swift */,
+				9775AB0B212FE1DF00CC2FC0 /* NotificationViewController.swift */,
 				97B0C74E212EB1A4003D32AC /* FriendDetailViewCell.swift */,
 				978E90D2212D37C50078A9DC /* FriendDetailViewController.swift */,
 				978E90C6212B3D4F0078A9DC /* FriendListTableViewCell.swift */,
@@ -322,7 +328,9 @@
 				978E90D1212CC9A60078A9DC /* WelcomeViewController.swift in Sources */,
 				9775AB0A212F910F00CC2FC0 /* UIApplication+TopViewController.swift in Sources */,
 				97B0C74F212EB1A4003D32AC /* FriendDetailViewCell.swift in Sources */,
+				9775AB0C212FE1DF00CC2FC0 /* NotificationViewController.swift in Sources */,
 				97E4E6C32129F71B0077BC0C /* ShowImageViewController.swift in Sources */,
+				9775AB0E212FEAB300CC2FC0 /* NotificationViewCell.swift in Sources */,
 				978F3913212EA7EF002C837E /* ImageStorage.swift in Sources */,
 				978E90C5212B3C930078A9DC /* FriendListTableViewController.swift in Sources */,
 				97B0C764212F848E003D32AC /* AddFriendViewController.swift in Sources */,

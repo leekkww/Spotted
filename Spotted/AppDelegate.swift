@@ -14,6 +14,7 @@ import FirebaseUI
 struct UserInfo {
     static var userName = ""
     static var friendos = [Friend]()
+    static var notifications = [SpottedNotification]()
 }
 
 @UIApplicationMain
@@ -96,6 +97,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
                 if let document = document, document.exists {
                     UserInfo.friendos = (document.data()!["friends"] as! [String]).map({
                         Friend(id:0,name:$0)
+                    })
+                    UserInfo.notifications = (document.data()!["notifications"] as! [String:Any?]).map({
+                        SpottedNotification($0)
                     })
                 } else {
                     print("Document does not exist")

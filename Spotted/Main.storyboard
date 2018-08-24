@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-730" y="116"/>
         </scene>
-        <!--Welcome View Controller-->
+        <!--Spotted-->
         <scene sceneID="DEk-Vh-Qzk">
             <objects>
                 <viewController storyboardIdentifier="WelcomeViewController" id="tc3-Oe-Cxr" customClass="WelcomeViewController" customModule="Spotted" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,13 +51,6 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="Siw-eR-Vuv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spotted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwb-by-aAV">
-                                <rect key="frame" x="150" y="79" width="61" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ani-IH-96N">
                                 <rect key="frame" x="16" y="617" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -82,11 +75,19 @@
                                     <segue destination="yTU-ON-Eov" kind="show" id="iAh-9l-XRF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6v7-WM-CBl">
+                                <rect key="frame" x="258" y="98" width="87" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Notifications"/>
+                                <connections>
+                                    <segue destination="VXD-7a-IFp" kind="presentation" id="7c4-HG-0mj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UHN-lD-OIx"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1pD-ln-eHi"/>
+                    <navigationItem key="navigationItem" title="Spotted" id="qzX-15-kdw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQG-PO-svC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -132,6 +133,34 @@
                 <exit id="HD6-ur-PZG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1244" y="115.59220389805098"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="cWa-PK-qba">
+            <objects>
+                <tableViewController id="VXD-7a-IFp" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8RQ-fi-Zl4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xda-Cv-pea">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xda-Cv-pea" id="f4X-Vd-KxJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VXD-7a-IFp" id="OKN-bc-ecX"/>
+                            <outlet property="delegate" destination="VXD-7a-IFp" id="jHr-NF-gBV"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cjR-Tf-bvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2167" y="116"/>
         </scene>
         <!--Look at Spots!-->
         <scene sceneID="tne-QT-ifu">
