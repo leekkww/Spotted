@@ -89,11 +89,11 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
             if let document = document, document.exists {
                 let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                 count = (document.data()!["count"] as? Int)!
+                docRef.setData([ "count": count+1 ], merge: true)
                 print("Document data: \(dataDescription)")
             } else {
                 print("Document does not exist")
             }
-            db.collection("photo-data").document("\(myName)-\(friendName)").setData([ "count": count+1 ], merge: true)
             
             let storagePath = self.imageStorePath(myName, friendName, count)
             let smallerImage = self.ImageView.image!.jpeg(.lowest)

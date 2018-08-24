@@ -66,8 +66,16 @@
                                     <action selector="signOut:" destination="tc3-Oe-Cxr" eventType="touchUpInside" id="RF6-Ng-e2Q"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqA-J6-GVS">
+                                <rect key="frame" x="143" y="318" width="75" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Friend"/>
+                                <connections>
+                                    <segue destination="YEU-eh-MCP" kind="show" id="D7T-75-wNv"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljw-cH-lqr">
-                                <rect key="frame" x="152" y="318" width="72" height="30"/>
+                                <rect key="frame" x="143" y="388" width="72" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Friend List"/>
                                 <connections>
@@ -82,7 +90,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQG-PO-svC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134" y="116"/>
+            <point key="canvasLocation" x="133.59999999999999" y="115.59220389805098"/>
+        </scene>
+        <!--Add Friend View Controller-->
+        <scene sceneID="3v7-i7-Syy">
+            <objects>
+                <viewController id="YEU-eh-MCP" customClass="AddFriendViewController" customModule="Spotted" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="orz-GN-yaz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oF1-fM-4hO">
+                                <rect key="frame" x="90" y="252" width="194" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="PendingFriendName:" destination="HD6-ur-PZG" eventType="editingDidEnd" id="hRM-2l-rCl"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjb-K3-KRD">
+                                <rect key="frame" x="150" y="318" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Friend"/>
+                                <connections>
+                                    <action selector="AddFriendButton:" destination="HD6-ur-PZG" eventType="touchUpInside" id="CJ7-W4-tLk"/>
+                                    <action selector="AddFriendButtonAction:" destination="YEU-eh-MCP" eventType="touchUpInside" id="W14-TV-qSj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="enW-Wb-XVB"/>
+                    </view>
+                    <connections>
+                        <outlet property="AddFriendButton" destination="tjb-K3-KRD" id="0cK-ut-1Mg"/>
+                        <outlet property="PendingFriendName" destination="oF1-fM-4hO" id="hvB-bo-7Rr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OaL-ZV-P1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HD6-ur-PZG" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1244" y="115.59220389805098"/>
         </scene>
         <!--Look at Spots!-->
         <scene sceneID="tne-QT-ifu">
@@ -129,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="116"/>
+            <point key="canvasLocation" x="1607" y="-714"/>
         </scene>
         <!--Your friendos-->
         <scene sceneID="12V-EM-QFM">
@@ -320,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWW-ay-xYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="-579"/>
+            <point key="canvasLocation" x="801" y="-713"/>
         </scene>
     </scenes>
 </document>
