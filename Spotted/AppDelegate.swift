@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import FirebaseUI
 
 struct UserInfo {
     static var userName = ""
@@ -16,7 +17,10 @@ struct UserInfo {
 }
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
+    
+    var navStart = UINavigationController()
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -54,8 +58,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let date: Date = timestamp.dateValue()
 //
 //        Please audit all existing usages of Date when you enable the new behavior. In a future release, the behavior will be changed to the new behavior, so if you do not follow these steps, YOUR APP MAY BREAK.
-
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = sb.instantiateViewController(withIdentifier: "StartNav") as? UINavigationController {
+            navStart = vc
+        }
+        
+        let authUI = FUIAuth.defaultAuthUI()
+        // You need to adopt a FUIAuthDelegate protocol to receive callback
+        authUI?.delegate = self
+        
+        let authViewController = authUI?.authViewController()
+        
+        window?.rootViewController = authViewController
         return true
+    }
+    
+    func emailEntryViewController(forAuthUI authUI: FUIAuth) -> FUIEmailEntryViewController {
+        return FUIEmailEntryViewController(authUI: authUI)
+    }
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        // handle user and error as necessary
+        print("in?")
+        if let error = error {
+            print("\(error.localizedDescription)")
+        } else {
+            print("in?")
+            UserInfo.userName = user!.displayName!
+            window?.rootViewController = navStart
+            //UIApplication.topViewController()?.present(navStart, animated: true, completion: nil)
+            
+            let db = Firestore.firestore()
+            let docRef = db.collection("users").document("joleek")
+            
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    UserInfo.friendos = (document.data()!["friends"] as! [String]).map({
+                        Friend(id:0,name:$0)
+                    })
+                } else {
+                    print("Document does not exist")
+                }
+            }
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
