@@ -11,10 +11,13 @@ import FirebaseUI
 
 class WelcomeViewController : UIViewController {
 
+    
+    @IBOutlet weak var spottedTitle: UILabel!
     @IBOutlet weak var cameraIcon: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        spottedTitle.font = UIFont.customFontLarge
         cameraIcon.image = UIImage(named: "camera.png")
     }
     

@@ -14,3 +14,9 @@ extension UIColor {
     //rgba(133, 132, 131, 0.5)
     static let spottedGray = UIColor(red: 133.0/255.0, green: 132.0/255.0, blue: 131.0/255.0, alpha: 0.5)
 }
+
+extension UIFont {
+    static let customFont = UIFont(name: "Dosis", size: UIFont.labelFontSize)
+    
+    static let customFontLarge = UIFont(name: "Dosis", size: 25)
+}

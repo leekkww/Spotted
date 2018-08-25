@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-730" y="116"/>
         </scene>
-        <!--Spotted-->
+        <!--Welcome View Controller-->
         <scene sceneID="DEk-Vh-Qzk">
             <objects>
                 <viewController storyboardIdentifier="WelcomeViewController" id="tc3-Oe-Cxr" customClass="WelcomeViewController" customModule="Spotted" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,22 +35,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYQ-TG-KdG">
-                                <rect key="frame" x="130" y="284" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Spot someone"/>
-                                <connections>
-                                    <segue destination="c2w-co-owo" kind="show" id="cAV-Xu-yVE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYg-pH-ZnP">
-                                <rect key="frame" x="110" y="343" width="140" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="View Previous Spots"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Siw-eR-Vuv"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ani-IH-96N">
                                 <rect key="frame" x="16" y="617" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -59,41 +43,80 @@
                                     <action selector="signOut:" destination="tc3-Oe-Cxr" eventType="touchUpInside" id="RF6-Ng-e2Q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqA-J6-GVS">
-                                <rect key="frame" x="143" y="393" width="75" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add Friend"/>
-                                <connections>
-                                    <segue destination="YEU-eh-MCP" kind="show" id="D7T-75-wNv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljw-cH-lqr">
-                                <rect key="frame" x="143" y="448" width="72" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Friend List"/>
-                                <connections>
-                                    <segue destination="yTU-ON-Eov" kind="show" id="iAh-9l-XRF"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NkU-fl-yDu">
-                                <rect key="frame" x="123" y="140" width="129" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6v7-WM-CBl">
-                                <rect key="frame" x="272" y="71" width="87" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6v7-WM-CBl">
+                                <rect key="frame" x="278" y="74" width="87" height="30"/>
                                 <state key="normal" title="Notifications"/>
                                 <connections>
                                     <segue destination="paR-6D-wrZ" kind="show" id="XOF-lQ-p9e"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Pnf-r8-6EP">
+                                <rect key="frame" x="112.5" y="114" width="150" height="190"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NkU-fl-yDu">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="OzH-ih-dvd"/>
+                                            <constraint firstAttribute="height" constant="150" id="RFY-HQ-9vg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFA-Qy-7oI">
+                                        <rect key="frame" x="32" y="160" width="86" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="fsy-M7-oKC">
+                                <rect key="frame" x="117.5" y="303" width="140" height="174"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYQ-TG-KdG">
+                                        <rect key="frame" x="20.5" y="0.0" width="99" height="30"/>
+                                        <state key="normal" title="Spot someone"/>
+                                        <connections>
+                                            <segue destination="c2w-co-owo" kind="show" id="cAV-Xu-yVE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYg-pH-ZnP">
+                                        <rect key="frame" x="0.0" y="48" width="140" height="30"/>
+                                        <state key="normal" title="View Previous Spots"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="Siw-eR-Vuv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqA-J6-GVS">
+                                        <rect key="frame" x="32.5" y="96" width="75" height="30"/>
+                                        <state key="normal" title="Add Friend"/>
+                                        <connections>
+                                            <segue destination="YEU-eh-MCP" kind="show" id="D7T-75-wNv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljw-cH-lqr">
+                                        <rect key="frame" x="34" y="144" width="72" height="30"/>
+                                        <state key="normal" title="Friend List"/>
+                                        <connections>
+                                            <segue destination="yTU-ON-Eov" kind="show" id="iAh-9l-XRF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fsy-M7-oKC" firstAttribute="centerX" secondItem="kSA-VW-b3f" secondAttribute="centerX" id="AJC-hs-Fhn"/>
+                            <constraint firstItem="UHN-lD-OIx" firstAttribute="bottom" secondItem="fsy-M7-oKC" secondAttribute="bottom" constant="190" id="Ay8-tt-Qek"/>
+                            <constraint firstItem="Pnf-r8-6EP" firstAttribute="top" secondItem="UHN-lD-OIx" secondAttribute="top" constant="50" id="X9l-Z1-aog"/>
+                            <constraint firstItem="6v7-WM-CBl" firstAttribute="top" secondItem="UHN-lD-OIx" secondAttribute="top" constant="10" id="Ysq-fI-9Af"/>
+                            <constraint firstItem="Pnf-r8-6EP" firstAttribute="centerX" secondItem="kSA-VW-b3f" secondAttribute="centerX" id="fca-M2-8mY"/>
+                            <constraint firstItem="UHN-lD-OIx" firstAttribute="trailing" secondItem="6v7-WM-CBl" secondAttribute="trailing" constant="10" id="s8M-69-pfl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UHN-lD-OIx"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Spotted" id="qzX-15-kdw"/>
+                    <navigationItem key="navigationItem" id="qzX-15-kdw"/>
                     <connections>
                         <outlet property="cameraIcon" destination="NkU-fl-yDu" id="oq4-fP-c3c"/>
+                        <outlet property="spottedTitle" destination="FFA-Qy-7oI" id="Urb-xC-id8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQG-PO-svC" userLabel="First Responder" sceneMemberID="firstResponder"/>
