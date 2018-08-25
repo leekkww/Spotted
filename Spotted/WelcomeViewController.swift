@@ -10,6 +10,15 @@ import UIKit
 import FirebaseUI
 
 class WelcomeViewController : UIViewController {
+
+    @IBOutlet weak var cameraIcon: UIImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let url = NSURL.fileURL(withPath: "/Users/leekkww/Documents/School/Spotted/Spotted/img/camera.png")
+        let imageData:NSData = NSData(contentsOf: url)!
+        cameraIcon.image = UIImage(data: imageData as Data)
+    }
     
     @IBAction internal func signOut(_ sender: UIButton) {
         let authUI = FUIAuth.defaultAuthUI()

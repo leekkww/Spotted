@@ -87,15 +87,17 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
         var count = 0
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                 count = (document.data()!["count"] as? Int)!
-                docRef.setData([ "count": count+1 ], merge: true)
-                print("Document data: \(dataDescription)")
-            } else {
-                print("Document does not exist")
             }
-            
-            let storagePath = self.imageStorePath(myName, friendName, count)
+            docRef.setData([
+                "metadata": FieldValue.arrayUnion([[
+                    "id": count + 1,
+                    "timestamp": Date(),
+                    "location": "hack lodge!"
+                ]]),
+                "count": count+1
+            ], merge: true)
+            let storagePath = imageStoragePath(myName, friendName, count)
             let smallerImage = self.ImageView.image!.jpeg(.lowest)
             self.uploadData(with: smallerImage!, storagePath: storagePath)
         }
@@ -103,10 +105,6 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         ImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismiss(animated: true, completion: nil)
-    }
-    
-    func imageStorePath(_ name1: String, _ name2: String, _ count: Int) -> String {
-        return "\(name1)/\(name2)/\(count).jpg"
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.

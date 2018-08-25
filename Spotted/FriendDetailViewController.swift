@@ -12,6 +12,9 @@ import FirebaseFirestore
 struct FriendImage {
     var id: Int
     var name: String
+    var me : Bool
+    var location: String
+    var timestamp: Date
 }
 
 class FriendDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -38,9 +41,16 @@ class FriendDetailViewController: UIViewController, UITableViewDataSource, UITab
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
                     self.imageCount = (document.data()!["count"] as? Int)!
+                    let metadata = (document.data()!["metadata"] as? [[String:Any?]])!
 
                     for i in 0..<self.imageCount {
-                        self.spots.append(FriendImage(id: i, name: friendName))
+                        self.spots.append(FriendImage(
+                            id: i,
+                            name: friendName,
+                            me: true,
+                            location: metadata[i]["location"] as! String,
+                            timestamp: (metadata[i]["timestamp"] as! Timestamp).dateValue()
+                        ))
                     }
                     self.TableView.reloadData()
                 } else {
@@ -76,6 +86,8 @@ class FriendDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Make dividing line shorter on each side, by 100 px
         TableView.separatorInset = UIEdgeInsetsMake(0, 100, 0, 100)
         configureView()
     }

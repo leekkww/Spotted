@@ -44,6 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
         UILabel.appearance().font = customFont
         UILabel.appearance(whenContainedInInstancesOf: [UIButton.self]).font = customFont
         
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().isTranslucent = false
+        
         FirebaseApp.configure()
         let db = Firestore.firestore()
         let settings = db.settings
@@ -72,39 +76,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
         let authViewController = authUI?.authViewController()
         
         window?.rootViewController = authViewController
+        
+        logInUser(username: "joleek")
         return true
     }
     
-    func emailEntryViewController(forAuthUI authUI: FUIAuth) -> FUIEmailEntryViewController {
-        return FUIEmailEntryViewController(authUI: authUI)
+    func logInUser(username : String) {
+        window?.rootViewController = navStart
+        UserInfo.userName = username
+        //UIApplication.topViewController()?.present(navStart, animated: true, completion: nil)
+        
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(username)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                UserInfo.friendos = (document.data()!["friends"] as! [String]).map({
+                    Friend(id:0,name:$0)
+                })
+                UserInfo.notifications = (document.data()!["notifications"] as! [[String:Any?]]).map({
+                    SpottedNotification($0)
+                })
+                print(UserInfo.notifications)
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         // handle user and error as necessary
-        print("in?")
+        print("TEST: trying to log in?")
         if let error = error {
             print("\(error.localizedDescription)")
         } else {
-            print("in?")
-            UserInfo.userName = user!.displayName!
-            window?.rootViewController = navStart
-            //UIApplication.topViewController()?.present(navStart, animated: true, completion: nil)
-            
-            let db = Firestore.firestore()
-            let docRef = db.collection("users").document("joleek")
-            
-            docRef.getDocument { (document, error) in
-                if let document = document, document.exists {
-                    UserInfo.friendos = (document.data()!["friends"] as! [String]).map({
-                        Friend(id:0,name:$0)
-                    })
-                    UserInfo.notifications = (document.data()!["notifications"] as! [String:Any?]).map({
-                        SpottedNotification($0)
-                    })
-                } else {
-                    print("Document does not exist")
-                }
-            }
+            logInUser(username: user!.displayName!)
         }
     }
 
