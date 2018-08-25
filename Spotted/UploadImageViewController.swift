@@ -83,6 +83,8 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
         let myName = UserInfo.userName
         let friendName: String = SpottedFriendText.text!
         let docRef = db.collection("photo-data").document("\(myName)-\(friendName)")
+        
+        // two friends sending each other images at the same time could get a race condition oops
 
         var count = 0
         docRef.getDocument { (document, error) in
@@ -93,13 +95,28 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
                 "metadata": FieldValue.arrayUnion([[
                     "id": count + 1,
                     "timestamp": Date(),
-                    "location": "hack lodge!"
+                    "location": "hack lodge!",
+                    "me": true
                 ]]),
                 "count": count+1
             ], merge: true)
             let storagePath = imageStoragePath(myName, friendName, count)
             let smallerImage = self.ImageView.image!.jpeg(.lowest)
             self.uploadData(with: smallerImage!, storagePath: storagePath)
+        }
+        
+        let docRefFriend = db.collection("photo-data").document("\(friendName)-\(myName)")
+        
+        docRefFriend.getDocument { (document, error) in
+            docRefFriend.setData([
+                "metadata": FieldValue.arrayUnion([[
+                    "id": count + 1,
+                    "timestamp": Date(),
+                    "location": "hack lodge!",
+                    "me": false
+                ]]),
+                "count": count + 1
+            ], merge: true)
         }
     }
     

@@ -47,7 +47,7 @@ class FriendDetailViewController: UIViewController, UITableViewDataSource, UITab
                         self.spots.append(FriendImage(
                             id: i,
                             name: friendName,
-                            me: true,
+                            me: metadata[i]["me"] as! Bool,
                             location: metadata[i]["location"] as! String,
                             timestamp: (metadata[i]["timestamp"] as! Timestamp).dateValue()
                         ))

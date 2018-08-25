@@ -15,20 +15,6 @@ class FriendDetailViewCell : UITableViewCell {
     @IBOutlet weak var metadataLabel: UIStackView!
     @IBOutlet weak var circle: UIImageView!
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        if(false) {
-            self.addConstraint(NSLayoutConstraint(item: SpotImageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 0.5, constant: 0))
-            self.addConstraint(NSLayoutConstraint(item: metadataLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.5, constant: 0))
-        } else {
-            self.addConstraint(NSLayoutConstraint(item: SpotImageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.5, constant: 0))
-            self.addConstraint(NSLayoutConstraint(item: metadataLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 0.5, constant: 0))
-        }
-
-        self.circle.setRounded()
-    }
-    
     var friendImage: FriendImage? {
         didSet {
             guard let friendImage = friendImage else { return }
@@ -43,7 +29,15 @@ class FriendDetailViewCell : UITableViewCell {
                 self.SpotImageView.image = UIImage(data: data)
             })
             
-            setNeedsLayout()
+            if(friendImage.me) {
+                self.addConstraint(NSLayoutConstraint(item: SpotImageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 0.5, constant: 0))
+                self.addConstraint(NSLayoutConstraint(item: metadataLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.5, constant: 0))
+            } else {
+                self.addConstraint(NSLayoutConstraint(item: SpotImageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.5, constant: 0))
+                self.addConstraint(NSLayoutConstraint(item: metadataLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 0.5, constant: 0))
+            }
+            
+            self.circle.setRounded()
         }
     }
 }

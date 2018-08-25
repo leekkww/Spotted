@@ -15,9 +15,7 @@ class WelcomeViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = NSURL.fileURL(withPath: "/Users/leekkww/Documents/School/Spotted/Spotted/img/camera.png")
-        let imageData:NSData = NSData(contentsOf: url)!
-        cameraIcon.image = UIImage(data: imageData as Data)
+        cameraIcon.image = UIImage(named: "camera.png")
     }
     
     @IBAction internal func signOut(_ sender: UIButton) {

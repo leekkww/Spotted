@@ -35,7 +35,6 @@
 		97E4E6C32129F71B0077BC0C /* ShowImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4E6C22129F71B0077BC0C /* ShowImageViewController.swift */; };
 		97E4E6C82129F71C0077BC0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97E4E6C72129F71C0077BC0C /* Assets.xcassets */; };
 		97E4E6CB2129F71C0077BC0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E4E6C92129F71C0077BC0C /* LaunchScreen.storyboard */; };
-		97F3997D21314668009B8EFB /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 97F3997C21314668009B8EFB /* camera.png */; };
 		B8ED373A212B43D100BAD098 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ED3739212B43D100BAD098 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +70,6 @@
 		97E4E6C72129F71C0077BC0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97E4E6CA2129F71C0077BC0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97E4E6CC2129F71C0077BC0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		97F3997C21314668009B8EFB /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		B8ED3739212B43D100BAD098 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD5F31176EBE284AB71F30F8 /* Pods-Spotted.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotted.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spotted/Pods-Spotted.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,7 +134,6 @@
 				978E90CC212C9FF40078A9DC /* GoogleService-Info.plist */,
 				97E4E6CC2129F71C0077BC0C /* Info.plist */,
 				97B0C752212ECCE8003D32AC /* fonts */,
-				97F3997B21314668009B8EFB /* img */,
 				97E4E6C02129F71B0077BC0C /* AppDelegate.swift */,
 				97B0C763212F848E003D32AC /* AddFriendViewController.swift */,
 				9775AB0D212FEAB300CC2FC0 /* NotificationViewCell.swift */,
@@ -158,14 +155,6 @@
 				97B0C750212EC3A1003D32AC /* Main.storyboard */,
 			);
 			path = Spotted;
-			sourceTree = "<group>";
-		};
-		97F3997B21314668009B8EFB /* img */ = {
-			isa = PBXGroup;
-			children = (
-				97F3997C21314668009B8EFB /* camera.png */,
-			);
-			path = img;
 			sourceTree = "<group>";
 		};
 		B53442E36AB62AE67C3B7A04 /* Frameworks */ = {
@@ -243,7 +232,6 @@
 				97B0C75F212ECCE8003D32AC /* Dosis-SemiBold.ttf in Resources */,
 				97B0C75E212ECCE8003D32AC /* Dosis-ExtraBold.ttf in Resources */,
 				97B0C75C212ECCE8003D32AC /* Dosis-Light.ttf in Resources */,
-				97F3997D21314668009B8EFB /* camera.png in Resources */,
 				97B0C751212EC3A1003D32AC /* Main.storyboard in Resources */,
 				97B0C75A212ECCE8003D32AC /* Dosis-Medium.ttf in Resources */,
 				97E4E6C82129F71C0077BC0C /* Assets.xcassets in Resources */,
