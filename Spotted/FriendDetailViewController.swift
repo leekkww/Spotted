@@ -45,7 +45,7 @@ class FriendDetailViewController: UIViewController, UITableViewDataSource, UITab
 
                     for i in 0..<self.imageCount {
                         self.spots.append(FriendImage(
-                            id: i,
+                            id: metadata[i]["id"] as! Int,
                             name: friendName,
                             me: metadata[i]["me"] as! Bool,
                             location: metadata[i]["location"] as! String,

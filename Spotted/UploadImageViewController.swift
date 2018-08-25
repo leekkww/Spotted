@@ -85,16 +85,18 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
         let docRef = db.collection("photo-data").document("\(myName)-\(friendName)")
         
         // two friends sending each other images at the same time could get a race condition oops
+        
+        let timeTaken = Date()
 
-        var count = 0
         docRef.getDocument { (document, error) in
+            var count = 0
             if let document = document, document.exists {
                 count = (document.data()!["count"] as? Int)!
             }
             docRef.setData([
                 "metadata": FieldValue.arrayUnion([[
                     "id": count + 1,
-                    "timestamp": Date(),
+                    "timestamp": timeTaken,
                     "location": "hack lodge!",
                     "me": true
                 ]]),
@@ -108,14 +110,18 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
         let docRefFriend = db.collection("photo-data").document("\(friendName)-\(myName)")
         
         docRefFriend.getDocument { (document, error) in
+            var count = 0
+            if let document = document, document.exists {
+                count = (document.data()!["count"] as? Int)!
+            }
             docRefFriend.setData([
                 "metadata": FieldValue.arrayUnion([[
                     "id": count + 1,
-                    "timestamp": Date(),
+                    "timestamp": timeTaken,
                     "location": "hack lodge!",
                     "me": false
                 ]]),
-                "count": count + 1
+                "count": count+1
             ], merge: true)
         }
     }

@@ -24,15 +24,18 @@ class FriendDetailViewCell : UITableViewCell {
             dateLabel.text = formatter.string(from: friendImage.timestamp)
             locationLabel.text = friendImage.location
             
-            downloadImage(UserInfo.userName, friendImage.name, friendImage.id, {
-                (data) -> Void in
-                self.SpotImageView.image = UIImage(data: data)
-            })
-            
             if(friendImage.me) {
+                downloadImage(UserInfo.userName, friendImage.name, friendImage.id, {
+                    (data) -> Void in
+                    self.SpotImageView.image = UIImage(data: data)
+                })
                 self.addConstraint(NSLayoutConstraint(item: SpotImageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 0.5, constant: 0))
                 self.addConstraint(NSLayoutConstraint(item: metadataLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.5, constant: 0))
             } else {
+                downloadImage(friendImage.name, UserInfo.userName, friendImage.id, {
+                    (data) -> Void in
+                    self.SpotImageView.image = UIImage(data: data)
+                })
                 self.addConstraint(NSLayoutConstraint(item: SpotImageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.5, constant: 0))
                 self.addConstraint(NSLayoutConstraint(item: metadataLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 0.5, constant: 0))
             }
