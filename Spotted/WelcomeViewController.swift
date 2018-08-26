@@ -24,6 +24,26 @@ class WelcomeViewController : UIViewController {
 //        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
 //        UINavigationBar.appearance().shadowImage = UIImage()
 //        UINavigationBar.appearance().backgroundColor = .clear
+        
+        // create tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(WelcomeViewController.imageTapped(gesture:)))
+        
+        // add it to the image view;
+        settingsIcon.addGestureRecognizer(tapGesture)
+        // make sure imageView can be interacted with by user
+        settingsIcon.isUserInteractionEnabled = true
+    }
+    
+    @objc func imageTapped(gesture: UIGestureRecognizer) {
+        print("settings tapped")
+        if (gesture.view as? UIImageView) != nil {
+            if let settingsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Settings") as? SettingsViewController {
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(settingsVC, animated: true)
+                }
+            }
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

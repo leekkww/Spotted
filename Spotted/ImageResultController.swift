@@ -10,18 +10,19 @@ import UIKit
 
 import FirebaseFirestore
 
-class ImageResultController : UIViewController {
+class ImageResultController : UIViewController, UITextFieldDelegate {
     
     var takenPhoto: UIImage?
     
     @IBOutlet weak var goBack: UIImageView!
     @IBOutlet weak var imageResult: UIImageView!
+    @IBOutlet weak var friendName: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.addConstraint(NSLayoutConstraint(item: imageResult, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: imageResult, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: 1, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(item: imageResult, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: 0.75, constant: 0))
         
         if let availableImage = takenPhoto {
             imageResult.image = availableImage
@@ -38,6 +39,8 @@ class ImageResultController : UIViewController {
         goBack.isUserInteractionEnabled = true
         
         self.navigationController?.navigationBar.isHidden = true
+        
+        friendName.delegate = self
     }
     
     @objc func imageTapped(gesture: UIGestureRecognizer) {
@@ -48,11 +51,16 @@ class ImageResultController : UIViewController {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        friendName.resignFirstResponder()
+        return true
+    }
+
     @IBAction internal func UploadImageAction(_ sender: UIButton) {
         let db = Firestore.firestore()
         
         let myName = UserInfo.userName
-        let friendName: String = "Slava"//SpottedFriendText.text!
+        let friendName: String = self.friendName.text!
         let docRef = db.collection("photo-data").document("\(myName)-\(friendName)")
         
         // two friends sending each other images at the same time could get a race condition oops
@@ -89,7 +97,7 @@ class ImageResultController : UIViewController {
             }
             docRefFriend.setData([
                 "metadata": FieldValue.arrayUnion([[
-                    "id": count + 1,
+                    "id": count,
                     "timestamp": timeTaken,
                     "location": "hack lodge!",
                     "me": false

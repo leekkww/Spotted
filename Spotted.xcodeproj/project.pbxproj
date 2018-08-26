@@ -21,6 +21,7 @@
 		978F3911212E913C002C837E /* SpottedTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978F3910212E913C002C837E /* SpottedTheme.swift */; };
 		978F3913212EA7EF002C837E /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978F3912212EA7EF002C837E /* ImageStorage.swift */; };
 		9791D07A212A768B0085718C /* UploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9791D079212A768B0085718C /* UploadImageViewController.swift */; };
+		97A9CCB12132377C001F294D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A9CCB02132377C001F294D /* SettingsViewController.swift */; };
 		97B0C74F212EB1A4003D32AC /* FriendDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B0C74E212EB1A4003D32AC /* FriendDetailViewCell.swift */; };
 		97B0C751212EC3A1003D32AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97B0C750212EC3A1003D32AC /* Main.storyboard */; };
 		97B0C75A212ECCE8003D32AC /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97B0C753212ECCE8003D32AC /* Dosis-Medium.ttf */; };
@@ -55,6 +56,7 @@
 		978F3910212E913C002C837E /* SpottedTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpottedTheme.swift; sourceTree = "<group>"; };
 		978F3912212EA7EF002C837E /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		9791D079212A768B0085718C /* UploadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewController.swift; sourceTree = "<group>"; };
+		97A9CCB02132377C001F294D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		97B0C74E212EB1A4003D32AC /* FriendDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailViewCell.swift; sourceTree = "<group>"; };
 		97B0C750212EC3A1003D32AC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		97B0C753212ECCE8003D32AC /* Dosis-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.ttf"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				974A497521320A1F0092C5E2 /* ImageResultController.swift */,
 				978F3912212EA7EF002C837E /* ImageStorage.swift */,
 				B8ED3739212B43D100BAD098 /* LoginViewController.swift */,
+				97A9CCB02132377C001F294D /* SettingsViewController.swift */,
 				97E4E6C22129F71B0077BC0C /* ShowImageViewController.swift */,
 				978F3910212E913C002C837E /* SpottedTheme.swift */,
 				978E90CE212CC3720078A9DC /* UIImage+JPEGQuality.swift */,
@@ -343,6 +346,7 @@
 				9791D07A212A768B0085718C /* UploadImageViewController.swift in Sources */,
 				978E90CF212CC3720078A9DC /* UIImage+JPEGQuality.swift in Sources */,
 				978E90D3212D37C50078A9DC /* FriendDetailViewController.swift in Sources */,
+				97A9CCB12132377C001F294D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

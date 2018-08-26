@@ -26,7 +26,7 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
         takePictureButton.image = UIImage(named: "circle.png")
         
         // create tap gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ImageResultController.imageTapped(gesture:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UploadImageViewController.imageTapped(gesture:)))
         
         // add it to the image view;
         takePictureButton.addGestureRecognizer(tapGesture)
