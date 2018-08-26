@@ -50,8 +50,8 @@
                                     <segue destination="paR-6D-wrZ" kind="show" id="XOF-lQ-p9e"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="bMb-Cd-Tiu">
-                                <rect key="frame" x="112.5" y="114" width="150" height="404"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="bMb-Cd-Tiu">
+                                <rect key="frame" x="112.5" y="114" width="150" height="414"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Pnf-r8-6EP">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
@@ -72,7 +72,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="fsy-M7-oKC">
-                                        <rect key="frame" x="0.0" y="230" width="150" height="174"/>
+                                        <rect key="frame" x="0.0" y="240" width="150" height="174"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYQ-TG-KdG">
                                                 <rect key="frame" x="25.5" y="0.0" width="99" height="30"/>
@@ -546,6 +546,13 @@
                                     <constraint firstAttribute="width" constant="80" id="wFJ-9E-LfM"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YmO-F4-oyN">
+                                <rect key="frame" x="0.0" y="15" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="07h-Rw-5fq"/>
+                                    <constraint firstAttribute="height" constant="50" id="ChF-DJ-H6w"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeA-b0-nde">
                                 <rect key="frame" x="162" y="350" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -558,6 +565,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Xjq-R4-QoL" firstAttribute="bottom" secondItem="fTK-T0-LDY" secondAttribute="bottom" constant="10" id="KPr-zG-l7B"/>
+                            <constraint firstItem="YmO-F4-oyN" firstAttribute="leading" secondItem="eBd-sZ-cWs" secondAttribute="leading" id="Q7t-Od-O2J"/>
+                            <constraint firstItem="YmO-F4-oyN" firstAttribute="top" secondItem="eBd-sZ-cWs" secondAttribute="top" constant="15" id="WEQ-CH-H2r"/>
                             <constraint firstItem="EnT-Yk-EGN" firstAttribute="top" secondItem="Xjq-R4-QoL" secondAttribute="top" constant="15" id="XDS-BK-mSr"/>
                             <constraint firstItem="EnT-Yk-EGN" firstAttribute="centerX" secondItem="eBd-sZ-cWs" secondAttribute="centerX" id="jYE-wt-8De"/>
                             <constraint firstItem="fTK-T0-LDY" firstAttribute="centerX" secondItem="eBd-sZ-cWs" secondAttribute="centerX" id="riN-fB-r2r"/>
@@ -566,6 +575,7 @@
                     </view>
                     <connections>
                         <outlet property="PhotoLibrary" destination="qeA-b0-nde" id="9Yd-lg-8wp"/>
+                        <outlet property="goBack" destination="YmO-F4-oyN" id="jgk-xg-fcf"/>
                         <outlet property="takePictureButton" destination="fTK-T0-LDY" id="Ckh-Bx-K64"/>
                         <outlet property="uploadTitle" destination="EnT-Yk-EGN" id="u13-rv-huc"/>
                     </connections>

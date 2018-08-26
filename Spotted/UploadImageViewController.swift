@@ -17,6 +17,7 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var uploadTitle: UILabel!
     @IBOutlet weak var PhotoLibrary: UIButton!
     @IBOutlet weak var takePictureButton: UIImageView!
+    @IBOutlet weak var goBack: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,24 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
         takePictureButton.isUserInteractionEnabled = true
         
         self.navigationController?.navigationBar.isHidden = true
+        
+        goBack.image = UIImage(named: "ex.jpg")
+        
+        // create tap gesture recognizer
+        let tapGestureEx = UITapGestureRecognizer(target: self, action: #selector(UploadImageViewController.exTapped(gesture:)))
+        
+        // add it to the image view;
+        goBack.addGestureRecognizer(tapGestureEx)
+        // make sure imageView can be interacted with by user
+        goBack.isUserInteractionEnabled = true
+    }
+    
+    @objc func exTapped(gesture: UIGestureRecognizer) {
+        // if the tapped view is a UIImageView then set it to imageview
+        if (gesture.view as? UIImageView) != nil {
+            //Here you can initiate your new ViewController
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @objc func imageTapped(gesture: UIGestureRecognizer) {
