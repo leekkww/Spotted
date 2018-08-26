@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		39E20701D7ABAD2870C0D250 /* Pods_Spotted.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77485E6BAFB99720D525C1B2 /* Pods_Spotted.framework */; };
+		974A497621320A1F0092C5E2 /* ImageResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974A497521320A1F0092C5E2 /* ImageResultController.swift */; };
 		9775AB0A212F910F00CC2FC0 /* UIApplication+TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9775AB09212F910F00CC2FC0 /* UIApplication+TopViewController.swift */; };
 		9775AB0C212FE1DF00CC2FC0 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9775AB0B212FE1DF00CC2FC0 /* NotificationViewController.swift */; };
 		9775AB0E212FEAB300CC2FC0 /* NotificationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9775AB0D212FEAB300CC2FC0 /* NotificationViewCell.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		5B58ECFDBAC7A8C3DE7451CA /* Pods-Spotted.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotted.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spotted/Pods-Spotted.release.xcconfig"; sourceTree = "<group>"; };
 		77485E6BAFB99720D525C1B2 /* Pods_Spotted.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotted.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		974A497521320A1F0092C5E2 /* ImageResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResultController.swift; sourceTree = "<group>"; };
 		9775AB09212F910F00CC2FC0 /* UIApplication+TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+TopViewController.swift"; sourceTree = "<group>"; };
 		9775AB0B212FE1DF00CC2FC0 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		9775AB0D212FEAB300CC2FC0 /* NotificationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewCell.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				978E90D2212D37C50078A9DC /* FriendDetailViewController.swift */,
 				978E90C6212B3D4F0078A9DC /* FriendListTableViewCell.swift */,
 				978E90C4212B3C930078A9DC /* FriendListTableViewController.swift */,
+				974A497521320A1F0092C5E2 /* ImageResultController.swift */,
 				978F3912212EA7EF002C837E /* ImageStorage.swift */,
 				B8ED3739212B43D100BAD098 /* LoginViewController.swift */,
 				97E4E6C22129F71B0077BC0C /* ShowImageViewController.swift */,
@@ -329,6 +332,7 @@
 				9775AB0A212F910F00CC2FC0 /* UIApplication+TopViewController.swift in Sources */,
 				97B0C74F212EB1A4003D32AC /* FriendDetailViewCell.swift in Sources */,
 				9775AB0C212FE1DF00CC2FC0 /* NotificationViewController.swift in Sources */,
+				974A497621320A1F0092C5E2 /* ImageResultController.swift in Sources */,
 				97E4E6C32129F71B0077BC0C /* ShowImageViewController.swift in Sources */,
 				9775AB0E212FEAB300CC2FC0 /* NotificationViewCell.swift in Sources */,
 				978F3913212EA7EF002C837E /* ImageStorage.swift in Sources */,

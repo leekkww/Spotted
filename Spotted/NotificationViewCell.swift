@@ -20,11 +20,11 @@ class NotificationViewCell : UITableViewCell {
             let confirmedVerb = notification.accepted ? "confirmed" : "denied"
             switch notification.type {
             case .FriendRequest:
-                    notifText = "\(notification.friend) has sent you a friend request."
+                    notifText = "\(notification.friend) sent you a friend request."
             case .FriendRequestResponse:
                     notifText = "\(notification.friend) has \(confirmedVerb) your friend request."
             case .SpotRequest:
-                    notifText = "\(notification.friend) has spotted you."
+                    notifText = "\(notification.friend) spotted you."
             case .SpotRequestResponse:
                     notifText = "\(notification.friend) has \(confirmedVerb) your spot."
             }

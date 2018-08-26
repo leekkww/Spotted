@@ -44,3 +44,31 @@ func downloadImage(_ name1 : String, _ name2 : String, _ count : Int, _ callback
         // Download completed successfully
     }
 }
+
+func uploadData(with data: Data, storagePath: String) {
+    let storage = Storage.storage()
+    let storageRef = storage.reference()
+    let riversRef = storageRef.child(storagePath)
+    
+    let metadata = StorageMetadata()
+    let uploadTask = riversRef.putData(data, metadata: metadata)
+    
+    // Listen for state changes, errors, and completion of the upload.
+    uploadTask.observe(.resume) { snapshot in
+        // Upload resumed, also fires when the upload starts
+    }
+    
+    uploadTask.observe(.pause) { snapshot in
+        // Upload paused
+    }
+    
+    uploadTask.observe(.progress) { snapshot in
+        // Upload reported progress
+        //let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount) / Double(snapshot.progress!.totalUnitCount)
+        //self.ProgressView.progress = Float(percentComplete)
+    }
+    
+    uploadTask.observe(.success) { snapshot in
+        // Upload completed successfully
+    }
+}

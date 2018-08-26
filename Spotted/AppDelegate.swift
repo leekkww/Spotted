@@ -37,9 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
         UILabel.appearance().font = UIFont.customFont
         UILabel.appearance(whenContainedInInstancesOf: [UIButton.self]).font = UIFont.customFont
         
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().backgroundColor = .clear
-        UINavigationBar.appearance().isTranslucent = false
+        
+        //UINavigationBar.appearance().isTranslucent = true
         
         FirebaseApp.configure()
         let db = Firestore.firestore()

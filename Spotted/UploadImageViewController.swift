@@ -7,24 +7,41 @@
 //
 
 import UIKit
+
+import AVFoundation
 import FirebaseFirestore
 import FirebaseStorage
 
-class UploadImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class UploadImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
 
+    @IBOutlet weak var uploadTitle: UILabel!
     @IBOutlet weak var PhotoLibrary: UIButton!
-    @IBOutlet weak var Camera: UIButton!
-    @IBOutlet weak var ImageView: UIImageView!
-    @IBOutlet weak var ProgressView: UIProgressView!
-    @IBOutlet weak var UploadImage: UIButton!
-    @IBOutlet weak var SpottedFriendText: UITextField!
-
+    @IBOutlet weak var takePictureButton: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        self.ProgressView.progress = 0.0;
-        SpottedFriendText.delegate = self
+        uploadTitle.font = UIFont.customFontLarge
+        
+        takePictureButton.image = UIImage(named: "circle.png")
+        
+        // create tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ImageResultController.imageTapped(gesture:)))
+        
+        // add it to the image view;
+        takePictureButton.addGestureRecognizer(tapGesture)
+        // make sure imageView can be interacted with by user
+        takePictureButton.isUserInteractionEnabled = true
+        
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    @objc func imageTapped(gesture: UIGestureRecognizer) {
+        // if the tapped view is a UIImageView then set it to imageview
+        if (gesture.view as? UIImageView) != nil {
+            //Here you can initiate your new ViewController
+            takePhoto = true
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,101 +56,105 @@ class UploadImageViewController: UIViewController, UIImagePickerControllerDelega
         
         present(picker, animated: true, completion: nil)
     }
-    @IBAction func CameraAction(_ sender: UIButton) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .camera
-        
-        present(picker, animated: true, completion: nil)
-    }
-    
-    func uploadData(with data: Data, storagePath: String) {
-        
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-        let riversRef = storageRef.child(storagePath)
-        
-        let metadata = StorageMetadata()
-        let uploadTask = riversRef.putData(data, metadata: metadata)
-        
-        // Listen for state changes, errors, and completion of the upload.
-        uploadTask.observe(.resume) { snapshot in
-            // Upload resumed, also fires when the upload starts
-        }
-        
-        uploadTask.observe(.pause) { snapshot in
-            // Upload paused
-        }
-        
-        uploadTask.observe(.progress) { snapshot in
-            // Upload reported progress
-            let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
-                / Double(snapshot.progress!.totalUnitCount)
-            self.ProgressView.progress = Float(percentComplete)
-        }
-        
-        uploadTask.observe(.success) { snapshot in
-            // Upload completed successfully
-        }
-    }
-    
-    @IBAction internal func UploadImageAction(_ sender: UIButton) {
-        let db = Firestore.firestore()
-        
-        let myName = UserInfo.userName
-        let friendName: String = SpottedFriendText.text!
-        let docRef = db.collection("photo-data").document("\(myName)-\(friendName)")
-        
-        // two friends sending each other images at the same time could get a race condition oops
-        
-        let timeTaken = Date()
-
-        docRef.getDocument { (document, error) in
-            var count = 0
-            if let document = document, document.exists {
-                count = (document.data()!["count"] as? Int)!
-            }
-            docRef.setData([
-                "metadata": FieldValue.arrayUnion([[
-                    "id": count + 1,
-                    "timestamp": timeTaken,
-                    "location": "hack lodge!",
-                    "me": true
-                ]]),
-                "count": count+1
-            ], merge: true)
-            let storagePath = imageStoragePath(myName, friendName, count)
-            let smallerImage = self.ImageView.image!.jpeg(.lowest)
-            self.uploadData(with: smallerImage!, storagePath: storagePath)
-        }
-        
-        let docRefFriend = db.collection("photo-data").document("\(friendName)-\(myName)")
-        
-        docRefFriend.getDocument { (document, error) in
-            var count = 0
-            if let document = document, document.exists {
-                count = (document.data()!["count"] as? Int)!
-            }
-            docRefFriend.setData([
-                "metadata": FieldValue.arrayUnion([[
-                    "id": count + 1,
-                    "timestamp": timeTaken,
-                    "location": "hack lodge!",
-                    "me": false
-                ]]),
-                "count": count+1
-            ], merge: true)
-        }
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        ImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismiss(animated: true, completion: nil)
+        print("loading image")
+        loadDetailImageView(info[UIImagePickerControllerOriginalImage] as! UIImage)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
-    {
-        SpottedFriendText.resignFirstResponder()
-        return true;
+    let captureSession = AVCaptureSession()
+    var previewLayer:CALayer!
+    
+    var captureDevice:AVCaptureDevice!
+    
+    var takePhoto = false
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        prepareCamera()
+    }
+    
+    func prepareCamera() {
+        captureSession.sessionPreset = AVCaptureSession.Preset.photo
+        
+        let availableDevices = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back).devices
+        captureDevice = availableDevices.first
+        beginSession()
+    }
+    
+    func beginSession () {
+        do {
+            let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
+            captureSession.addInput(captureDeviceInput)
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        self.previewLayer = previewLayer
+        self.view.layer.addSublayer(self.previewLayer)
+        self.previewLayer.frame = self.view.layer.frame
+        captureSession.startRunning()
+        
+        let dataOutput = AVCaptureVideoDataOutput()
+        dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString):NSNumber(value:kCVPixelFormatType_32BGRA)] as [String : Any]
+        
+        dataOutput.alwaysDiscardsLateVideoFrames = true
+        
+        if captureSession.canAddOutput(dataOutput) {
+            captureSession.addOutput(dataOutput)
+        }
+        
+        captureSession.commitConfiguration()
+        
+        let queue = DispatchQueue(label: "hls18-Spotted.captureQueue")
+        dataOutput.setSampleBufferDelegate(self as AVCaptureVideoDataOutputSampleBufferDelegate, queue: queue)
+    }
+
+    func loadDetailImageView(_ detailImage: UIImage) {
+        if let photoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PhotoResult") as? ImageResultController {
+            photoVC.takenPhoto = detailImage
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(photoVC, animated: true)
+            }
+        }
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        if takePhoto {
+            takePhoto = false
+            
+            if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
+                self.stopCaptureSession()
+                loadDetailImageView(image)
+            }
+        }
+    }
+    
+    func getImageFromSampleBuffer (buffer:CMSampleBuffer) -> UIImage? {
+        if let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) {
+            let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+            let context = CIContext()
+            
+            let imageRect = CGRect(x: 0, y: 0, width: CVPixelBufferGetWidth(pixelBuffer), height: CVPixelBufferGetHeight(pixelBuffer))
+            
+            if let image = context.createCGImage(ciImage, from: imageRect) {
+                return UIImage(cgImage: image, scale: UIScreen.main.scale, orientation: .right)
+            }
+        }
+        return nil
+    }
+    
+    func stopCaptureSession () {
+        self.captureSession.stopRunning()
+        
+        if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
+            for input in inputs {
+                self.captureSession.removeInput(input)
+            }
+        }
+        
     }
 }
 
