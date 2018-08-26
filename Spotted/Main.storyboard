@@ -81,11 +81,11 @@
                                                     <segue destination="c2w-co-owo" kind="show" id="cAV-Xu-yVE"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYg-pH-ZnP">
-                                                <rect key="frame" x="5" y="48" width="140" height="30"/>
-                                                <state key="normal" title="View Previous Spots"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljw-cH-lqr">
+                                                <rect key="frame" x="37" y="48" width="76" height="30"/>
+                                                <state key="normal" title="My Friends"/>
                                                 <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="show" id="Siw-eR-Vuv"/>
+                                                    <segue destination="yTU-ON-Eov" kind="show" id="iAh-9l-XRF"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqA-J6-GVS">
@@ -95,11 +95,11 @@
                                                     <segue destination="YEU-eh-MCP" kind="show" id="D7T-75-wNv"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljw-cH-lqr">
-                                                <rect key="frame" x="39" y="144" width="72" height="30"/>
-                                                <state key="normal" title="Friend List"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYg-pH-ZnP" userLabel="Previous Spots">
+                                                <rect key="frame" x="23.5" y="144" width="103" height="30"/>
+                                                <state key="normal" title="Previous Spots"/>
                                                 <connections>
-                                                    <segue destination="yTU-ON-Eov" kind="show" id="iAh-9l-XRF"/>
+                                                    <segue destination="BYZ-38-t0r" kind="show" id="Siw-eR-Vuv"/>
                                                 </connections>
                                             </button>
                                         </subviews>

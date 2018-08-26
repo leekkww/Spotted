@@ -21,7 +21,7 @@ class AddFriendViewController : UIViewController {
     
     @IBAction func AddFriendButtonAction(_ sender: Any) {
         let db = Firestore.firestore()
-        let docRef = db.collection("users").document("joleek")
+        let docRef = db.collection("users").document(UserInfo.userName)
         
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {

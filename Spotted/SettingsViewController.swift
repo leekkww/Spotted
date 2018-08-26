@@ -36,7 +36,10 @@ class SettingsViewController : UIViewController {
                 })
                 print(UserInfo.notifications)
             } else {
-                print("Document does not exist")
+                docRef.setData([
+                    "friends" : [],
+                    "notifications" : [],
+                ])
             }
         }
     }
